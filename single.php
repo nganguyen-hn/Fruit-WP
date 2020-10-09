@@ -48,9 +48,16 @@
 
 
 					<?php } ?>
+
+
+					<?php if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif; ?>
 				</div>
 				<div class="col-lg-4">
-					
+					<div class="sidebar">
+						<?php get_sidebar(); ?>
+					</div>
 				</div>
 			</div>
 		</div>

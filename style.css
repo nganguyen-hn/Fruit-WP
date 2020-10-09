@@ -17,6 +17,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
   font-family: 'HelveticaNeueMedium';
   src: url("fonts/HelveticaNeuBold.ttf");
   font-weight: 600; }
+@font-face {
+  font-family: 'HelveticaNeueMedium';
+  src: url("fonts/HelveticaNeueLt");
+  font-weight: 300; }
 html {
   scroll-behavior: smooth; }
 
@@ -104,19 +108,19 @@ input:focus {
   z-index: 2;
   box-shadow: 1px 2px 6px 4px rgba(53, 57, 68, 0.2); }
   #back-to-top i {
-    color: #000;
+    color: #333333;
     display: inline-block;
     line-height: 40px; }
   #back-to-top.show {
     transform: translate(0px, 0px); }
   #back-to-top:hover {
-    background-color: #000; }
+    background-color: #333333; }
     #back-to-top:hover i {
       color: #fff; }
 
 /*end nut len tren*/
 .menu_destopscroll {
-  background-color: #000;
+  background-color: #333333;
   transition: background-color 0.5s ease 0s, padding 0.5s ease 0s;
   box-shadow: 0 0 15px rgba(185, 44, 44, 0.2);
   left: 0;
@@ -136,7 +140,7 @@ input:focus {
     padding-top: 0px !important; }
 
 .menu_mobilescroll {
-  background-color: #000;
+  background-color: #333333;
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
   transition: background-color 0.5s ease 0s, padding 0.5s ease 0s;
   left: 0;
@@ -149,7 +153,7 @@ input:focus {
   transition: 0.5s; }
 
 .menu_mobile {
-  background-color: #000;
+  background-color: #333333;
   padding: 10px 0; }
   .menu_mobile .iconbtmoblie {
     color: #fff; }
@@ -233,13 +237,13 @@ input:focus {
       padding: 12px 0px;
       font-weight: 500;
       font-size: 14px;
-      color: #000;
+      color: #333333;
       text-transform: uppercase;
       transition: 0.5s;
       text-decoration: none; }
       .content_menumobile .mobilemenu_list a.active {
         text-decoration: none;
-        color: #000; }
+        color: #333333; }
       .content_menumobile .mobilemenu_list a i {
         float: right;
         z-index: 9;
@@ -307,7 +311,7 @@ input:focus {
     padding: 10px 20px;
     border-radius: 5px;
     color: #fff;
-    background-color: #000;
+    background-color: #333333;
     box-shadow: -4px 3px 0px 1px #af4095;
     transition: all 0.3s ease; }
     .content_menumobile .button-dathang:hover {
@@ -364,13 +368,13 @@ header .menu_destop {
       text-decoration: none;
       transition: all 0.3s ease; }
     header .menu_destop ul li .product .boximg:hover h5 a {
-      color: #000; }
+      color: #333333; }
   header .menu_destop ul .nav-item .nav-link {
     font-size: 15px;
     font-weight: 500;
     padding: 0 28px;
     text-transform: uppercase;
-    color: #000;
+    color: #333333;
     font-family: "HelveticaNeueMedium", sans-serif; }
     header .menu_destop ul .nav-item .nav-link:hover, header .menu_destop ul .nav-item .nav-link:active {
       color: #699800; }
@@ -394,7 +398,7 @@ header .menu_destop {
 .box-img {
   overflow: hidden; }
   .box-img img {
-    transition: all 0.8s ease; }
+    transition: all 0.5s ease; }
   .box-img:hover img {
     transform: scale(1.1); }
 
@@ -479,7 +483,7 @@ header .menu_destop {
     visibility: visible;
     z-index: 99999999; }
   .poup-ut .close-popuput {
-    color: #000;
+    color: #333333;
     font-size: 20px;
     position: absolute;
     top: 10px;
@@ -543,7 +547,7 @@ header .menu_destop {
     font-size: 13px;
     line-height: 1.6; }
     .poup-ut .form-horizontal .bottom-box a {
-      color: #000; }
+      color: #333333; }
 
 .bg-poup-ut {
   height: 100%;
@@ -585,7 +589,7 @@ header .menu_destop {
     .search-full-destop .search-eveland .drawer-search-top .drawer-search-title {
       font-size: 25px;
       text-align: center;
-      color: #000;
+      color: #333333;
       font-weight: 500;
       margin-top: 0;
       line-height: 1.2;
@@ -627,7 +631,7 @@ header .menu_destop {
         width: 25px;
         height: auto; }
         .search-full-destop .search-eveland .wg-search-form button svg:hover {
-          fill: #000;
+          fill: #333333;
           cursor: pointer; }
       .search-full-destop .search-eveland .wg-search-form button:focus {
         outline: none; }
@@ -693,7 +697,7 @@ header .menu_destop {
         margin-bottom: 19px; }
         .blog-page .item-blog .info-blog .title-blog a {
           font-size: 18px;
-          color: #000;
+          color: #333333;
           font-weight: 600;
           font-family: "HelveticaNeueMedium", sans-serif;
           text-decoration: none;
@@ -736,5 +740,60 @@ header .menu_destop {
           color: #699800; }
           .blog-page .item-blog .info-blog .button-blog:hover i {
             padding-left: 12px; }
+
+/*style sidebar*/
+.widget-sidebar {
+  margin-left: 30px; }
+  .widget-sidebar .sidebar_title {
+    margin-top: 50px;
+    margin-bottom: 35px; }
+    .widget-sidebar .sidebar_title:first-child {
+      margin-top: 0; }
+    .widget-sidebar .sidebar_title .title-sidebar {
+      font-size: 15px;
+      font-family: "HelveticaNeueMedium", sans-serif;
+      color: #333333;
+      font-weight: 600; }
+  .widget-sidebar .post-sidebar li {
+    margin-bottom: 20px; }
+    .widget-sidebar .post-sidebar li:last-child {
+      margin-bottom: 0px; }
+    .widget-sidebar .post-sidebar li .img_sidebar {
+      overflow: hidden; }
+      .widget-sidebar .post-sidebar li .img_sidebar img {
+        border-radius: 3px; }
+    .widget-sidebar .post-sidebar li .content_sidebar {
+      margin-left: 15px;
+      margin-top: 6px; }
+      .widget-sidebar .post-sidebar li .content_sidebar h5 {
+        line-height: 0.9; }
+        .widget-sidebar .post-sidebar li .content_sidebar h5 a {
+          color: #333333;
+          font-size: 14px;
+          text-transform: uppercase;
+          font-family: "HelveticaNeueMedium", sans-serif;
+          font-weight: 400;
+          text-decoration: none;
+          transition: 0.5s; }
+          .widget-sidebar .post-sidebar li .content_sidebar h5 a:hover {
+            color: #699800; }
+      .widget-sidebar .post-sidebar li .content_sidebar .date_submitted {
+        color: #b2b2b2;
+        margin-top: 7px;
+        display: inline-block; }
+  .widget-sidebar .list_tag a {
+    text-decoration: none;
+    font-family: "HelveticaNeueMedium", sans-serif;
+    margin-bottom: 15px;
+    color: #b2b2b2;
+    font-weight: 300;
+    display: inline-block;
+    border-radius: 3px;
+    padding: 6px 12px;
+    border: 1px solid #b2b2b2;
+    transition: 0.5s; }
+    .widget-sidebar .list_tag a:hover {
+      color: #699800;
+      border: 1px solid #699800; }
 
 /*# sourceMappingURL=style.css.map */

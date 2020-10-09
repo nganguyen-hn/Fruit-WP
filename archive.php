@@ -27,9 +27,9 @@ get_header();
 		<div class="container container-v1">
 			<div class="row">
 				<?php
-	                $count=0;
-	                if (have_posts()): while (have_posts()): the_post();
-	            ?>
+                    while (have_posts() ) { 
+                the_post();                              
+                ?>
 				 <div class="col-lg-6">
                     <div class="item-blog">
                         <div class="box-imgblog">
@@ -61,10 +61,13 @@ get_header();
                         </div>
                     </div>
                 </div> 
-				<?php endwhile; ?>
-                <?php endif; ?>
-                <?php wp_reset_postdata(); ?>
+				<?php 
+                    }
+                    wp_reset_postdata(); 
+                ?>
 			</div>
+            <?php wpbeginner_numeric_posts_nav(); ?>
+
 		</div>
 	</section>
 

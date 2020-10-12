@@ -741,6 +741,9 @@ header .menu_destop {
           .blog-page .item-blog .info-blog .button-blog:hover i {
             padding-left: 12px; }
 
+.blog-single {
+  margin-top: 120px; }
+
 /*style sidebar*/
 .widget-sidebar {
   margin-left: 30px; }
@@ -754,6 +757,38 @@ header .menu_destop {
       font-family: "HelveticaNeueMedium", sans-serif;
       color: #333333;
       font-weight: 600; }
+  .widget-sidebar .description-form {
+    font-size: 15px;
+    color: #b3b3b3;
+    font-weight: 400; }
+  .widget-sidebar form {
+    width: 100%;
+    position: relative; }
+    .widget-sidebar form .text-input {
+      border: 1px solid #e5e5e5;
+      width: 100%;
+      padding: 0 7.8rem 0 .8rem;
+      height: 40px;
+      border-radius: 3px; }
+      .widget-sidebar form .text-input::placeholder {
+        font-size: 15px;
+        color: #b3b3b3;
+        font-weight: 300; }
+    .widget-sidebar form .btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 40px;
+      background: #699800;
+      color: #fff;
+      transition: 0.3s;
+      font-size: 15px;
+      border-radius: 0 3px 3px 0; }
+      .widget-sidebar form .btn:hover {
+        background: #333333; }
+  .widget-sidebar .post-sidebar .box-img,
+  .widget-sidebar .post-sidebar img {
+    border-radius: 3px; }
   .widget-sidebar .post-sidebar li {
     margin-bottom: 20px; }
     .widget-sidebar .post-sidebar li:last-child {
@@ -785,15 +820,88 @@ header .menu_destop {
     text-decoration: none;
     font-family: "HelveticaNeueMedium", sans-serif;
     margin-bottom: 15px;
+    font-size: 15px !important;
     color: #b2b2b2;
     font-weight: 300;
     display: inline-block;
     border-radius: 3px;
     padding: 6px 12px;
     border: 1px solid #b2b2b2;
-    transition: 0.5s; }
+    transition: 0.5s;
+    margin-right: 3px; }
     .widget-sidebar .list_tag a:hover {
       color: #699800;
       border: 1px solid #699800; }
+
+footer {
+  background: #333333;
+  font-size: 15px;
+  color: #fff; }
+  footer .footer-top {
+    padding-top: 121px;
+    padding-bottom: 117px; }
+    footer .footer-top .padding-item-top {
+      padding-top: 20px; }
+    footer .footer-top .textwidget {
+      margin-top: 29px; }
+    footer .footer-top .gallery-size-thumbnail {
+      margin-top: 26px !important; }
+    footer .footer-top .logo {
+      margin-left: 56px;
+      margin-bottom: 17px; }
+    footer .footer-top ul {
+      width: fit-content;
+      text-align: left; }
+      footer .footer-top ul li {
+        line-height: 2.5; }
+        footer .footer-top ul li a {
+          font-size: 15px;
+          color: #b3b3b3;
+          text-decoration: none;
+          font-weight: 300;
+          transition: all 0.3s ease; }
+          footer .footer-top ul li a i {
+            margin-right: 10px; }
+          footer .footer-top ul li a:hover {
+            color: #699800; }
+  footer #gallery-1 .gallery-item {
+    float: left;
+    margin-top: 0;
+    text-align: center;
+    width: 25%; }
+  footer #gallery-1 img {
+    border: none; }
+  footer .gallery-icon img {
+    transition: all 0.3s ease; }
+    footer .gallery-icon img:hover {
+      filter: brightness(50%); }
+
+.breadcrumb_site {
+  background-image: url(http://localhost/Nga/Fruit/wp-content/themes/Fruit/images/breacrum.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 185px 0;
+  font-weight: 600;
+  font-size: 32px;
+  text-transform: uppercase; }
+  .breadcrumb_site .breadcrumb {
+    background-color: transparent;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: capitalize; }
+    .breadcrumb_site .breadcrumb span {
+      margin: 0 5px; }
+    .breadcrumb_site .breadcrumb .current-item {
+      color: #699800; }
+    .breadcrumb_site .breadcrumb a {
+      text-decoration: none;
+      color: #333333;
+      transition: all 0.3s ease; }
+      .breadcrumb_site .breadcrumb a:hover {
+        color: #699800; }
 
 /*# sourceMappingURL=style.css.map */

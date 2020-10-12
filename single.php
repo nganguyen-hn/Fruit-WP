@@ -1,22 +1,19 @@
 <?php get_header(); ?>
 <main>
-	<section>
-		<div>
-			<nav class="breadcrumb-nav text-center" aria-label="breadcrumb">
-				<?php the_title(); ?>
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<?php echo get_home_url(); ?>" title=""></a></li>
-					<li class="breadcrumb-item">
-						<?php
-						$categories = get_the_category();
-						if ( ! empty( $categories ) ) {
-							echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
-						}?>
-					</li>
-				</ol>
-			</nav>
-		</div>   
-	</section>
+	<section class="breadcrumb_site text-center" >
+            <div class="container">
+            	<?php the_title(); ?>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <?php   
+                    if(function_exists('bcn_display')) {
+                        bcn_display(false,true,false,false); 
+                    } 
+                    ?>
+                    </ol>
+                </nav>
+            </div>
+        </section>
 	<section class="blog-single">
 		<div class="container">
 			<div class="row">			
@@ -41,7 +38,7 @@
 							</ul>
 						</div>
 
-						<div class="blog-single">
+						<div class="blog-single-content">
 							<?php the_content(); ?>					
 						</div>
 
@@ -63,3 +60,6 @@
 		</div>
 	</section>
 </main>
+<?php
+get_footer(); 
+?>

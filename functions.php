@@ -4,6 +4,7 @@ include ('include/widget_new_post.php');
 include ('include/widget_list_tag.php');
 include('include/bs4navwalker.php');
 add_action( 'after_setup_theme', 'setup_theme' );
+add_filter( 'widget_text', 'do_shortcode' );
 function setup_theme(){
 	add_theme_support( 'post-thumbnails' ); // images admin
 	add_image_size( 'archive_thumb', 570, 400, true ); // images category
@@ -21,8 +22,41 @@ function widget_theme(){
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
     ) );
+	 register_sidebar( array(
+        'name'          => __( 'Footer V1', 'theme_name' ),
+        'id'            => 'footer_v1',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
+	  register_sidebar( array(
+        'name'          => __( 'Footer V2', 'theme_name' ),
+        'id'            => 'footer_v2',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
+	   register_sidebar( array(
+        'name'          => __( 'Footer V3', 'theme_name' ),
+        'id'            => 'footer_v3',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
+	    register_sidebar( array(
+        'name'          => __( 'Footer V4', 'theme_name' ),
+        'id'            => 'footer_v4',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ) );
 }
 add_action( 'widgets_init', 'widget_theme' );
+
 
 
 

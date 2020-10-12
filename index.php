@@ -2,6 +2,6 @@
 get_header(); 
 ?>
 <main>
-	index
+	<h1 class="text-center my-5">home page - index</h1>
 </main>
  <?php get_footer(); ?>

@@ -2,27 +2,19 @@
 get_header(); 
 ?>
 <main>
-    <section>
-        <nav class="breadcrumb-nav text-center" aria-label="breadcrumb">
-            <h3>
-                <?php
-                $categories = get_the_category();
-                if ( ! empty( $categories ) ) {
-                    echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
-                }?>
-            </h3>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="<?php echo get_home_url(); ?>" title=""></a></li>
-                <li class="breadcrumb-item">
-                    <?php
-                    $categories = get_the_category();
-                    if ( ! empty( $categories ) ) {
-                        echo '<a href="' . esc_url( get_category_link( $categories[0]->term_id ) ) . '">' . esc_html( $categories[0]->name ) . '</a>';
-                    }?>
-                </li>
-            </ol>
-        </nav>
-    </section>
+    <section class="breadcrumb_site">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <?php   
+                    if(function_exists('bcn_display')) {
+                        bcn_display(false,true,false,false); 
+                    } 
+                    ?>
+                    </ol>
+                </nav>
+            </div>
+        </section>
 	<section class="blog-page">
 		<div class="container container-v1">
 			<div class="row">
@@ -70,10 +62,9 @@ get_header();
 
 		</div>
 	</section>
-
-
     
 </main>
+
 <?php
 get_footer(); 
 ?>

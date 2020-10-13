@@ -26,7 +26,7 @@ class list_tag extends WP_Widget{
 			'number'     => $instance['tag_number'] ,
 			'orderby'    => 'name',
 			'order'      => 'ASC',
-			'taxonomy'   => 'post_tag',
+			'taxonomy'   => 'product_tag',
 			'post_type'  => '',
 			'echo'       => false,
 			'show_count' => 0,

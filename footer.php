@@ -37,17 +37,32 @@
 						<?php dynamic_sidebar( 'footer_v4' ); ?>
 					</div>
 				</div>
-			</div>
+			</div>			
 		</div>
 		<div class="copyright">
-			
-
-		</div>
-
+				<div class="container container-v1">
+					<div class="row align-content-center">						
+						<div class="col-lg-6">
+							<?php dynamic_sidebar( 'copyright_bottom_text' ); ?>
+							<!-- <p class="mb-0">@ 2018 <a href="#">ORGAMIC.</a> Get The Theme.</p> -->
+						</div>
+						<div class="col-lg-6">
+							<?php dynamic_sidebar( 'copyright_bottom_link' ); ?>
+							<!-- <div class="float-right">
+								<ul class="mb-0 list-unstyled list-inline list-social-item">
+									<li class="list-inline-item"><a href="#" class="social-item"><i class="fa fa-facebook"></i></a></li>
+									<li class="list-inline-item"><a href="#" class="social-item"><i class="fa fa fa-instagram"></i></a></li>
+									<li class="list-inline-item"><a href="#" class="social-item"><i class="fa fa-linkedin"></i></a></li>
+									<li class="list-inline-item"><a href="#" class="social-item"><i class="fa fa-twitter"></i></a></li>
+								</ul>
+							</div> -->
+						</div>
+					</div>		
+					
+				</div>
+			</div>
 	</footer>
 </div>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.bundle.min.js"></script>
-        <script src="<?php echo get_template_directory_uri(); ?>/js/myjs.js"></script>
 		<?php wp_footer(); ?>
 	</body>
 </html>

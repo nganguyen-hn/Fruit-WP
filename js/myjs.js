@@ -1,68 +1,56 @@
-function jssearch() {
-  $('.js-search-destop').on('click', function() {
-      $('.js-box-search').addClass('active');
-      $('.bg_search_box').addClass('active');
-      $('body').addClass('activedestop');
+
+jQuery(document).ready(function(){
+  function jssearch() {
+  jQuery('.js-search-destop').on('click', function() {
+      jQuery('.js-box-search').addClass('active');
+      jQuery('.bg_search_box').addClass('active');
+      jQuery('body').addClass('activedestop');
     });
-    $('.js-drawer-close').on('click', function() {
-      $('.js-box-search').removeClass('active');
-      $('.bg_search_box').removeClass('active');
-      $('body').removeClass('activedestop');
+    jQuery('.js-drawer-close').on('click', function() {
+      jQuery('.js-box-search').removeClass('active');
+      jQuery('.bg_search_box').removeClass('active');
+      jQuery('body').removeClass('activedestop');
     });
-    $('.bg_search_box').on('click', function() {
-      $('.js-box-search').removeClass('active');
-      $('.bg_search_box').removeClass('active');
-      $('body').removeClass('activedestop');
+    jQuery('.bg_search_box').on('click', function() {
+      jQuery('.js-box-search').removeClass('active');
+      jQuery('.bg_search_box').removeClass('active');
+      jQuery('body').removeClass('activedestop');
     });
 }
 
 function menumobile() {
-    $('.jsmenu').on('click', function() {
-      $('.content_menumobile').toggleClass('active');     
-      $('.background_content_menumobile').toggleClass('active');     
+    jQuery('.jsmenu').on('click', function() {
+      jQuery('.content_menumobile').toggleClass('active');     
+      jQuery('.background_content_menumobile').toggleClass('active');     
     });
-    $('.background_content_menumobile').on('click', function() {
-        $('.content_menumobile').removeClass('active');
-        $('.background_content_menumobile').removeClass('active');
+    jQuery('.background_content_menumobile').on('click', function() {
+        jQuery('.content_menumobile').removeClass('active');
+        jQuery('.background_content_menumobile').removeClass('active');
     });
-    $('.close-menu').on('click', function() {
-        $('.content_menumobile').removeClass('active');
-        $('.background_content_menumobile').removeClass('active');
+    jQuery('.close-menu').on('click', function() {
+        jQuery('.content_menumobile').removeClass('active');
+        jQuery('.background_content_menumobile').removeClass('active');
     });
 }
 
 function fixedHeader() {
-    var $nav = $(".menu_destop");
-    $nav.removeClass('menu_destopscroll');
-    $(document).scroll(function() {
-        $nav.toggleClass('menu_destopscroll', $(this).scrollTop() > $nav.height());
+    var jQuerynav = jQuery(".menu_destop");
+    jQuerynav.removeClass('menu_destopscroll');
+    jQuery(document).scroll(function() {
+        jQuerynav.toggleClass('menu_destopscroll', jQuery(this).scrollTop() > jQuerynav.height());
     });
 }
 
 function mobilescroll() {
-    var $nav = $(".menu_mobile");
-    $nav.removeClass('menu_mobilescroll');
+    var jQuerynav = jQuery(".menu_mobile");
+    jQuerynav.removeClass('menu_mobilescroll');
 
-    $(document).scroll(function() {
+    jQuery(document).scroll(function() {
 
-        $nav.toggleClass('menu_mobilescroll', $(this).scrollTop() > $nav.height());
+        jQuerynav.toggleClass('menu_mobilescroll', jQuery(this).scrollTop() > jQuerynav.height());
     });
 }
 
-function minicartsideright() {
-    $('.jscartmini_side_right').on('click', function() {
-        $('.sidecart_left_mini').addClass('active');
-        $('.bg_sidecart_left_mini').addClass('active');
-    });
-    $('.closebtn').on('click', function() {
-        $('.sidecart_left_mini').removeClass('active');
-        $('.bg_sidecart_left_mini').removeClass('active');
-    });
-    $('.bg_sidecart_left_mini').on('click', function() {
-        $('.sidecart_left_mini').removeClass('active');
-        $('.bg_sidecart_left_mini').removeClass('active');
-    });
-}
 
  
 
@@ -70,4 +58,6 @@ jssearch();
 menumobile();
 mobilescroll();
 fixedHeader();
-minicartsideright();
+
+
+})

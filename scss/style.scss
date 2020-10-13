@@ -1149,6 +1149,73 @@ footer{
             }
         }
     }
+
+    .copyright{
+        border-top: 1px solid #999999;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        color: #b2b2b2;
+        p{
+            font-size: 15px;
+            font-weight: 300;
+            a{
+                color: #b2b2b2;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                &:hover{
+                    color: $color-main2;
+                }
+            }
+        }
+        .list-social-item{
+            li{
+                margin-right: 5px;
+                &:last-child{
+                  margin-right: 0px;  
+                }
+                .social-item{
+                    transition: all 0.3s ease;
+                    border: 1px solid #b2b2b2;
+                    border-radius: 50%;
+                    height: 31px;
+                    width: 31px;
+                    line-height: 31px;
+                    display: inline-block;
+                    text-align: center;
+                    overflow: hidden;
+                    position: relative;
+                    font-size: 16px;
+                    color: #b2b2b2;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        border-radius: 50%;
+                        transform: scale(0);
+                        background: $color-main2;
+                        transition: all ease .3s;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    i{
+
+                        position: relative;
+                        z-index: 1;
+                        -webkit-text-fill-color: transparent;
+                        -webkit-text-stroke-width: 0.5px;
+                        -webkit-text-stroke-color: inherit;
+                    }
+                    &:hover{
+                        &:before{
+                            transform: scale(0.9);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     #gallery-1 .gallery-item{
         float: left;
         margin-top: 0;

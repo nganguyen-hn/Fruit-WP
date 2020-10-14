@@ -9,20 +9,24 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
 @font-face {
-    font-family: 'HelveticaNeueMedium';
-    src: url("fonts/HelveticaNeueMedium.ttf");
+    font-family: 'HelveticaNeue';
+    src: url("fonts/HelveticaNeue.ttf");
     font-weight: 400;
 }
 @font-face {
-    font-family: 'HelveticaNeueMedium';
-    src: url("fonts/HelveticaNeuBold.ttf");
+    font-family: 'HelveticaNeue';
+    src: url("fonts/helveticaneue.ttf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url("fonts/helveticaneuebold.ttf");
     font-weight: 600;
 }
 @font-face {
-    font-family: 'HelveticaNeueMedium';
-    src: url("fonts/HelveticaNeueLt");
+    font-family: 'HelveticaNeue';
+    src: url("fonts/helveticaneuelight.ttf");
     font-weight: 300;
 }
 html {
@@ -31,7 +35,7 @@ html {
 :focus {
     outline: none;
 }
-$font-primary:'HelveticaNeueMedium', sans-serif;
+$font-primary:'HelveticaNeue', sans-serif;
 $color-main:#333333;
 $color-main2:#699800;
 $color-main3:#b2b2b2;
@@ -492,8 +496,8 @@ header {
             .nav-item {                
                 .nav-link {
                     font-size: 15px;
-                    font-weight: 500;
-                    padding: 0 28px;
+                    font-weight: 600;
+                    padding: 0 31px;
                     text-transform: uppercase;
                     color: $color-main;
                     font-family: $font-primary;
@@ -904,7 +908,7 @@ visibility: hidden;
         margin-bottom: 48px;
         .box-imgblog{
             overflow: hidden;
-            border-radius: 5px;
+            border-radius: 3px;
             img{
                 transition: 0.5s;
             }
@@ -917,40 +921,41 @@ visibility: hidden;
             }
         }
         .info-blog{
-            margin-top: 31px;
-            .title-blog{
-                margin-bottom: 19px;
-                a{
-                    font-size: 18px;
-                    color: $color-main;
-                    font-weight: 600;
-                    font-family: $font-primary;
-                    text-decoration: none;
-                    text-transform: uppercase;
-                    transition: 0.5s;
-                    &:hover{
-                     color: $color-main2; 
-                 }
-             }
-         }
-         .date-admin-cmt{
-            ul{
-                margin-bottom: 28px;
-                li{
-                    color: #b3b3b3;
-                    font-size: 15px;
-                    font-weight: 400;
-                    font-family: $font-primary;
-                    padding: 2px 25px 2px 10px ;
-                    border-left:  1px solid #b3b3b3;
-                    &:first-child{
-                        padding: 2px 25px 2px 0px ;
-                        border-left:  none;
-                    }
+                margin-top: 25px;
+                .title-blog{
+                    margin-bottom: 10px;
+                    a{
+                        font-size: 18px;
+                        color: $color-main;
+                        font-weight: 600;
+                        font-family: $font-primary;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        transition: 0.5s;
+                        &:hover{
+                           color: $color-main2; 
+                       }
+                   }
+               }
+               .date-admin-cmt{
+                ul{
+                    margin-bottom: 19px;
+                    li{
+                        color: #b3b3b3;
+                        font-size: 15px;
+                        font-weight: 300;
+                        font-family: $font-primary;
+                        padding: 2px 12px 2px 10px ;
+                        border-left:  1px solid #b3b3b3;
+                        margin: 0;
+                        &:first-child{
+                            padding: 2px 12px 2px 0px ;
+                            border-left:  none;
+                        }
 
+                    }
                 }
             }
-        }
         .content-blog{
             font-size: 15px;
             color: #666666;
@@ -963,7 +968,7 @@ visibility: hidden;
             color: $color-main3;
             text-decoration: none;
             font-weight: 400;
-            letter-spacing: 1px;
+            letter-spacing: 0.2px;
             font-family: $font-primary;
             margin-top: 13px;
             display: inline-block;
@@ -973,14 +978,53 @@ visibility: hidden;
             }
             transition: 0.5s;
             &:hover{
-             color: $color-main2;
-             i{
+               color: $color-main2;
+               i{
                 padding-left:12px;
+                }
+            }
+        }
+     }
+    }
+    .pagination-nav{
+    margin-bottom: 105px;
+        ul{
+            li{
+                display: inline-block;
+                margin-right: 3px;
+                &:last-child{
+                    margin-right: 0px;
+                }
+                a{
+                    width: 38px;
+                    height: 38px;
+                    line-height:38px;
+                    color: #d9d9d9;
+                    border: 1px solid #d9d9d9;
+                    text-align: center;
+                    display: inline-block;
+                    font-size: 16px;
+                    font-weight: 400;
+                    -webkit-transition: background-color .3s ease-in-out;
+                    -moz-transition: background-color .3s ease-in-out;
+                    -ms-transition: background-color .3s ease-in-out;
+                    -o-transition: background-color .3s ease-in-out;
+                    transition: background-color .3s ease-in-out;
+                    text-decoration: none;
+                    border-radius: 3px;
+                }
+                &:active,
+                &:hover
+                {
+                    a{
+                        color: #fff;
+                        border: 1px solid $color-main2;
+                        background: $color-main2;
+                    }
+                }
             }
         }
     }
-}
-}
 }
 
 
@@ -993,8 +1037,8 @@ visibility: hidden;
     margin-left: 30px;
       
     .sidebar_title{
-        margin-top: 50px;
-        margin-bottom: 35px;
+        margin-top: 48px;
+        margin-bottom: 30px;
         &:first-child{
             margin-top:0;
         }
@@ -1005,7 +1049,6 @@ visibility: hidden;
             font-weight: 600;            
         }
     }
-
     .description-form{
         font-size: 15px;
         color: #b3b3b3;
@@ -1036,6 +1079,7 @@ visibility: hidden;
             transition: 0.3s;
             font-size: 15px;
             border-radius: 0 3px 3px 0;
+            padding: .375rem .82rem;
             &:hover{
              background: $color-main;
             }
@@ -1061,7 +1105,7 @@ visibility: hidden;
             }
             .content_sidebar{
                 margin-left: 15px;
-                margin-top: 6px;
+                margin-top: 9px;
                 h5{
                     line-height: 0.9;
                     a{                    
@@ -1069,7 +1113,7 @@ visibility: hidden;
                         font-size: 14px;
                         text-transform: uppercase;
                         font-family: $font-primary;
-                        font-weight: 400;
+                        font-weight: 500;
                         text-decoration: none;
                         transition: 0.5s;
                         &:hover{
@@ -1080,7 +1124,10 @@ visibility: hidden;
                 .date_submitted{
                     color: $color-main3;
                     margin-top: 7px;
+                    font-family: $font-primary;
                     display: inline-block;
+                    font-size: 13px;
+                    font-weight: 500;
                 }    
             }
         }
@@ -1089,13 +1136,13 @@ visibility: hidden;
         a{
             text-decoration: none;
             font-family: $font-primary;
-            margin-bottom: 15px;
+            margin-bottom: 6px;
             font-size: 15px !important;
             color: $color-main3;
             font-weight: 300;
             display: inline-block;
             border-radius: 3px;
-            padding:6px 12px;
+            padding:4px 12px;
             border:1px solid $color-main3;
             transition: 0.5s;
             margin-right: 3px;
@@ -1115,24 +1162,24 @@ footer{
         padding-top:121px;
         padding-bottom: 117px;
         .padding-item-top{
-            padding-top: 20px;
+            padding-top: 17px;
         }
 
-        .textwidget{
-            margin-top: 29px;
+        ul{
+            margin-top: 20px;
         }
         .gallery-size-thumbnail{
                 margin-top: 26px !important;
         }
         .logo{
             margin-left: 56px;
-            margin-bottom: 17px;
+            margin-bottom: 10px;
         }
         ul{
             width: fit-content;
             text-align: left;
             li{
-                line-height: 2.5;
+                line-height: 2.65;
                 a{
                     font-size: 15px;
                     color: #b3b3b3;
@@ -1158,6 +1205,7 @@ footer{
         p{
             font-size: 15px;
             font-weight: 300;
+            letter-spacing: 0.3px;
             a{
                 color: #b2b2b2;
                 text-decoration: none;
@@ -1169,7 +1217,7 @@ footer{
         }
         .list-social-item{
             li{
-                margin-right: 5px;
+                margin-right: 8px;
                 &:last-child{
                   margin-right: 0px;  
                 }
@@ -1238,10 +1286,17 @@ footer{
     background-image: url(http://localhost/Nga/Fruit/wp-content/themes/Fruit/images/breacrum.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 185px 0;
+    padding: 180px 0 170px 0;
     font-weight: 600;
     font-size: 32px;
     text-transform: uppercase;
+    .title-page{
+        font-size: 32px;
+        font-weight: 600;
+        color:$color-main;
+        letter-spacing: 1px;
+        font-family: $font-primary;
+    }
     .breadcrumb{
         background-color: transparent;
         margin: 0 auto;
@@ -1249,8 +1304,9 @@ footer{
         display: inline-block;
         padding:0;
         font-size: 18px;
-        font-weight: 300;
+        font-weight: 500;
         text-transform: capitalize;
+        font-family: $font-primary;
         span{
             margin: 0 5px;
         }
@@ -1261,6 +1317,7 @@ footer{
             text-decoration: none;
             color: $color-main;
             transition: all 0.3s ease;
+            font-family: $font-primary;
             &:hover{
               color: $color-main2;
             }
@@ -1268,3 +1325,40 @@ footer{
     }
 }
 
+.category-product{
+    max-width: 69%;  
+    .item{
+        width:39px;
+        color: #808080;
+        font-weight: 300;
+    }
+    .title-catergory{
+        flex-grow: 1;
+    }
+    .item-category{
+        display: flex;
+        margin-bottom: 15px;
+        &:last-child{
+            margin-bottom:0px;
+        }
+        h5{
+            font-size: 15px;
+            font-family: $font-primary; 
+            margin-top: 5px;           
+            a{
+                color: #808080;
+                font-weight: 500;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                    &:hover{
+                      color: $color-main2;
+                    }
+            }
+        }
+        .number-count-product{
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+    }
+}

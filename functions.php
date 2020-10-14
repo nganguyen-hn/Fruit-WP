@@ -2,6 +2,7 @@
 include ('include/widget_search.php');
 include ('include/widget_new_post.php');
 include ('include/widget_list_tag.php');
+include ('include/widget_category_product.php');
 include('include/bs4navwalker.php');
 add_action( 'after_setup_theme', 'setup_theme' );
 add_filter( 'widget_text', 'do_shortcode' );
@@ -114,10 +115,10 @@ function wpbeginner_numeric_posts_nav() {
         $links[] = $paged + 2;
         $links[] = $paged + 1;
     }
-    echo '<div class="page-nav td-pb-padding-side mt-all wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s"><ul class="p-0 list-unstyled">' . "\n";
+    echo '<div class="pagination-nav text-center"><ul class="p-0 mb-0 list-unstyled">' . "\n";
     // Previous Post Link 
     if ( get_previous_posts_link() )
-        printf( '<li class="disabled">%s</li>' . "\n", get_previous_posts_link('&larr;') );
+        printf( '<li class="disabled">%s</li>' . "\n", get_previous_posts_link('<i class="fa fa-angle-left"></i>') );
     // Link to first page, plus ellipses if necessary 
     if ( ! in_array( 1, $links ) ) {
         $class = 1 == $paged ? ' class="active"' : '';
@@ -140,7 +141,7 @@ function wpbeginner_numeric_posts_nav() {
     }
     // Next Post Link 
     if ( get_next_posts_link() )
-        printf( '<li class="">%s</li>' . "\n", get_next_posts_link('&rarr;') );
+        printf( '<li class="">%s</li>' . "\n", get_next_posts_link('<i class="fa fa-angle-right"></i>') );
     echo ' </ul></div>' . "\n";
 }
 

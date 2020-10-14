@@ -44,7 +44,7 @@
 					<div class="row align-content-center">						
 						<div class="col-lg-6">
 							<?php dynamic_sidebar( 'copyright_bottom_text' ); ?>
-							<!-- <p class="mb-0">@ 2018 <a href="#">ORGAMIC.</a> Get The Theme.</p> -->
+							<!-- <p class="mb-0">&copy; 2018 <a href="#">ORGAMIC.</a> Get The Theme.</p> -->
 						</div>
 						<div class="col-lg-6">
 							<?php dynamic_sidebar( 'copyright_bottom_link' ); ?>

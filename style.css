@@ -10,16 +10,20 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 @font-face {
-  font-family: 'HelveticaNeueMedium';
-  src: url("fonts/HelveticaNeueMedium.ttf");
+  font-family: 'HelveticaNeue';
+  src: url("fonts/HelveticaNeue.ttf");
   font-weight: 400; }
 @font-face {
-  font-family: 'HelveticaNeueMedium';
-  src: url("fonts/HelveticaNeuBold.ttf");
+  font-family: 'HelveticaNeue';
+  src: url("fonts/helveticaneue.ttf");
+  font-weight: 500; }
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url("fonts/helveticaneuebold.ttf");
   font-weight: 600; }
 @font-face {
-  font-family: 'HelveticaNeueMedium';
-  src: url("fonts/HelveticaNeueLt");
+  font-family: 'HelveticaNeue';
+  src: url("fonts/helveticaneuelight.ttf");
   font-weight: 300; }
 html {
   scroll-behavior: smooth; }
@@ -28,7 +32,7 @@ html {
   outline: none; }
 
 body {
-  font-family: "HelveticaNeueMedium", sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
   transition: all .5s ease; }
   body.activedestop {
     margin-top: 500px;
@@ -319,7 +323,7 @@ input:focus {
       background-color: #699800; }
 
 header .menu_destop {
-  font-family: "HelveticaNeueMedium", sans-serif;
+  font-family: "HelveticaNeue", sans-serif;
   padding: 10px 0;
   z-index: 10;
   background-color: #fff; }
@@ -360,7 +364,7 @@ header .menu_destop {
     background: #fff;
     transform: translateX(-35%); }
     header .menu_destop ul li .product .boximg h5 a {
-      font-family: "HelveticaNeueMedium", sans-serif;
+      font-family: "HelveticaNeue", sans-serif;
       font-size: 18px;
       color: #333;
       margin-top: 10px;
@@ -371,11 +375,11 @@ header .menu_destop {
       color: #333333; }
   header .menu_destop ul .nav-item .nav-link {
     font-size: 15px;
-    font-weight: 500;
-    padding: 0 28px;
+    font-weight: 600;
+    padding: 0 31px;
     text-transform: uppercase;
     color: #333333;
-    font-family: "HelveticaNeueMedium", sans-serif; }
+    font-family: "HelveticaNeue", sans-serif; }
     header .menu_destop ul .nav-item .nav-link:hover, header .menu_destop ul .nav-item .nav-link:active {
       color: #699800; }
   header .menu_destop .search svg {
@@ -518,7 +522,7 @@ header .menu_destop {
         border-bottom: 3px solid #DADBDF; }
         .poup-ut .nav-tabs li a span {
           font-size: 13px;
-          font-family: "HelveticaNeueMedium", sans-serif;
+          font-family: "HelveticaNeue", sans-serif;
           margin-top: 10px; }
         .poup-ut .nav-tabs li a:active {
           border: none;
@@ -684,7 +688,7 @@ header .menu_destop {
     margin-bottom: 48px; }
     .blog-page .item-blog .box-imgblog {
       overflow: hidden;
-      border-radius: 5px; }
+      border-radius: 3px; }
       .blog-page .item-blog .box-imgblog img {
         transition: 0.5s; }
       .blog-page .item-blog .box-imgblog:hover img {
@@ -692,44 +696,45 @@ header .menu_destop {
         transition: .5s;
         opacity: .6; }
     .blog-page .item-blog .info-blog {
-      margin-top: 31px; }
+      margin-top: 25px; }
       .blog-page .item-blog .info-blog .title-blog {
-        margin-bottom: 19px; }
+        margin-bottom: 10px; }
         .blog-page .item-blog .info-blog .title-blog a {
           font-size: 18px;
           color: #333333;
           font-weight: 600;
-          font-family: "HelveticaNeueMedium", sans-serif;
+          font-family: "HelveticaNeue", sans-serif;
           text-decoration: none;
           text-transform: uppercase;
           transition: 0.5s; }
           .blog-page .item-blog .info-blog .title-blog a:hover {
             color: #699800; }
       .blog-page .item-blog .info-blog .date-admin-cmt ul {
-        margin-bottom: 28px; }
+        margin-bottom: 19px; }
         .blog-page .item-blog .info-blog .date-admin-cmt ul li {
           color: #b3b3b3;
           font-size: 15px;
-          font-weight: 400;
-          font-family: "HelveticaNeueMedium", sans-serif;
-          padding: 2px 25px 2px 10px;
-          border-left: 1px solid #b3b3b3; }
+          font-weight: 300;
+          font-family: "HelveticaNeue", sans-serif;
+          padding: 2px 12px 2px 10px;
+          border-left: 1px solid #b3b3b3;
+          margin: 0; }
           .blog-page .item-blog .info-blog .date-admin-cmt ul li:first-child {
-            padding: 2px 25px 2px 0px;
+            padding: 2px 12px 2px 0px;
             border-left: none; }
       .blog-page .item-blog .info-blog .content-blog {
         font-size: 15px;
         color: #666666;
         font-weight: 400;
-        font-family: "HelveticaNeueMedium", sans-serif;
+        font-family: "HelveticaNeue", sans-serif;
         line-height: 1.8; }
       .blog-page .item-blog .info-blog .button-blog {
         font-size: 15px;
         color: #b2b2b2;
         text-decoration: none;
         font-weight: 400;
-        letter-spacing: 1px;
-        font-family: "HelveticaNeueMedium", sans-serif;
+        letter-spacing: 0.2px;
+        font-family: "HelveticaNeue", sans-serif;
         margin-top: 13px;
         display: inline-block;
         transition: 0.5s; }
@@ -740,6 +745,34 @@ header .menu_destop {
           color: #699800; }
           .blog-page .item-blog .info-blog .button-blog:hover i {
             padding-left: 12px; }
+  .blog-page .pagination-nav {
+    margin-bottom: 105px; }
+    .blog-page .pagination-nav ul li {
+      display: inline-block;
+      margin-right: 3px; }
+      .blog-page .pagination-nav ul li:last-child {
+        margin-right: 0px; }
+      .blog-page .pagination-nav ul li a {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+        color: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 400;
+        -webkit-transition: background-color .3s ease-in-out;
+        -moz-transition: background-color .3s ease-in-out;
+        -ms-transition: background-color .3s ease-in-out;
+        -o-transition: background-color .3s ease-in-out;
+        transition: background-color .3s ease-in-out;
+        text-decoration: none;
+        border-radius: 3px; }
+      .blog-page .pagination-nav ul li:active a, .blog-page .pagination-nav ul li:hover a {
+        color: #fff;
+        border: 1px solid #699800;
+        background: #699800; }
 
 .blog-single {
   margin-top: 120px; }
@@ -748,13 +781,13 @@ header .menu_destop {
 .widget-sidebar {
   margin-left: 30px; }
   .widget-sidebar .sidebar_title {
-    margin-top: 50px;
-    margin-bottom: 35px; }
+    margin-top: 48px;
+    margin-bottom: 30px; }
     .widget-sidebar .sidebar_title:first-child {
       margin-top: 0; }
     .widget-sidebar .sidebar_title .title-sidebar {
       font-size: 15px;
-      font-family: "HelveticaNeueMedium", sans-serif;
+      font-family: "HelveticaNeue", sans-serif;
       color: #333333;
       font-weight: 600; }
   .widget-sidebar .description-form {
@@ -783,7 +816,8 @@ header .menu_destop {
       color: #fff;
       transition: 0.3s;
       font-size: 15px;
-      border-radius: 0 3px 3px 0; }
+      border-radius: 0 3px 3px 0;
+      padding: .375rem .82rem; }
       .widget-sidebar form .btn:hover {
         background: #333333; }
   .widget-sidebar .post-sidebar .box-img,
@@ -799,15 +833,15 @@ header .menu_destop {
         border-radius: 3px; }
     .widget-sidebar .post-sidebar li .content_sidebar {
       margin-left: 15px;
-      margin-top: 6px; }
+      margin-top: 9px; }
       .widget-sidebar .post-sidebar li .content_sidebar h5 {
         line-height: 0.9; }
         .widget-sidebar .post-sidebar li .content_sidebar h5 a {
           color: #333333;
           font-size: 14px;
           text-transform: uppercase;
-          font-family: "HelveticaNeueMedium", sans-serif;
-          font-weight: 400;
+          font-family: "HelveticaNeue", sans-serif;
+          font-weight: 500;
           text-decoration: none;
           transition: 0.5s; }
           .widget-sidebar .post-sidebar li .content_sidebar h5 a:hover {
@@ -815,17 +849,20 @@ header .menu_destop {
       .widget-sidebar .post-sidebar li .content_sidebar .date_submitted {
         color: #b2b2b2;
         margin-top: 7px;
-        display: inline-block; }
+        font-family: "HelveticaNeue", sans-serif;
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 500; }
   .widget-sidebar .list_tag a {
     text-decoration: none;
-    font-family: "HelveticaNeueMedium", sans-serif;
-    margin-bottom: 15px;
+    font-family: "HelveticaNeue", sans-serif;
+    margin-bottom: 6px;
     font-size: 15px !important;
     color: #b2b2b2;
     font-weight: 300;
     display: inline-block;
     border-radius: 3px;
-    padding: 6px 12px;
+    padding: 4px 12px;
     border: 1px solid #b2b2b2;
     transition: 0.5s;
     margin-right: 3px; }
@@ -841,19 +878,19 @@ footer {
     padding-top: 121px;
     padding-bottom: 117px; }
     footer .footer-top .padding-item-top {
-      padding-top: 20px; }
-    footer .footer-top .textwidget {
-      margin-top: 29px; }
+      padding-top: 17px; }
+    footer .footer-top ul {
+      margin-top: 20px; }
     footer .footer-top .gallery-size-thumbnail {
       margin-top: 26px !important; }
     footer .footer-top .logo {
       margin-left: 56px;
-      margin-bottom: 17px; }
+      margin-bottom: 10px; }
     footer .footer-top ul {
       width: fit-content;
       text-align: left; }
       footer .footer-top ul li {
-        line-height: 2.5; }
+        line-height: 2.65; }
         footer .footer-top ul li a {
           font-size: 15px;
           color: #b3b3b3;
@@ -871,7 +908,8 @@ footer {
     color: #b2b2b2; }
     footer .copyright p {
       font-size: 15px;
-      font-weight: 300; }
+      font-weight: 300;
+      letter-spacing: 0.3px; }
       footer .copyright p a {
         color: #b2b2b2;
         text-decoration: none;
@@ -879,7 +917,7 @@ footer {
         footer .copyright p a:hover {
           color: #699800; }
     footer .copyright .list-social-item li {
-      margin-right: 5px; }
+      margin-right: 8px; }
       footer .copyright .list-social-item li:last-child {
         margin-right: 0px; }
       footer .copyright .list-social-item li .social-item {
@@ -930,10 +968,16 @@ footer {
   background-image: url(http://localhost/Nga/Fruit/wp-content/themes/Fruit/images/breacrum.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 185px 0;
+  padding: 180px 0 170px 0;
   font-weight: 600;
   font-size: 32px;
   text-transform: uppercase; }
+  .breadcrumb_site .title-page {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333333;
+    letter-spacing: 1px;
+    font-family: "HelveticaNeue", sans-serif; }
   .breadcrumb_site .breadcrumb {
     background-color: transparent;
     margin: 0 auto;
@@ -941,8 +985,9 @@ footer {
     display: inline-block;
     padding: 0;
     font-size: 18px;
-    font-weight: 300;
-    text-transform: capitalize; }
+    font-weight: 500;
+    text-transform: capitalize;
+    font-family: "HelveticaNeue", sans-serif; }
     .breadcrumb_site .breadcrumb span {
       margin: 0 5px; }
     .breadcrumb_site .breadcrumb .current-item {
@@ -950,8 +995,37 @@ footer {
     .breadcrumb_site .breadcrumb a {
       text-decoration: none;
       color: #333333;
-      transition: all 0.3s ease; }
+      transition: all 0.3s ease;
+      font-family: "HelveticaNeue", sans-serif; }
       .breadcrumb_site .breadcrumb a:hover {
         color: #699800; }
+
+.category-product {
+  max-width: 69%; }
+  .category-product .item {
+    width: 39px;
+    color: #808080;
+    font-weight: 300; }
+  .category-product .title-catergory {
+    flex-grow: 1; }
+  .category-product .item-category {
+    display: flex;
+    margin-bottom: 15px; }
+    .category-product .item-category:last-child {
+      margin-bottom: 0px; }
+    .category-product .item-category h5 {
+      font-size: 15px;
+      font-family: "HelveticaNeue", sans-serif;
+      margin-top: 5px; }
+      .category-product .item-category h5 a {
+        color: #808080;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease; }
+        .category-product .item-category h5 a:hover {
+          color: #699800; }
+    .category-product .item-category .number-count-product {
+      font-size: 13px;
+      margin-top: 5px; }
 
 /*# sourceMappingURL=style.css.map */

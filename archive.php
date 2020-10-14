@@ -2,19 +2,20 @@
 get_header(); 
 ?>
 <main>
-    <section class="breadcrumb_site">
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <?php   
-                    if(function_exists('bcn_display')) {
-                        bcn_display(false,true,false,false); 
-                    } 
-                    ?>
-                    </ol>
-                </nav>
-            </div>
-        </section>
+<section class="breadcrumb_site text-center" >
+        <div class="container container-v1">
+            <h1 class="title-page mb-0"><?php single_cat_title(); ?></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <?php   
+                if(function_exists('bcn_display')) {
+                    bcn_display(false,true,false,false); 
+                } 
+                ?>
+                </ol>
+            </nav>
+        </div>
+</section>
 	<section class="blog-page">
 		<div class="container container-v1">
 			<div class="row">
@@ -37,11 +38,11 @@ get_header();
                                         <?php echo get_the_date(); ?>
                                     </li>
                                     <li class="list-inline-item">
-                                        <?php the_author(); ?>
+                                        By <?php the_author(); ?>
                                     </li>
-                                <!--     <li class="list-inline-item">
-                                        <?php get_comment(); ?>
-                                    </li> -->
+                                    <li class="list-inline-item">
+                                        <?php echo get_comments_number(); ?> comments
+                                    </li>
                                 </ul>
                             </div>
                             <div class="content-blog">
@@ -58,7 +59,7 @@ get_header();
                     wp_reset_postdata(); 
                 ?>
 			</div>
-            <?php wpbeginner_numeric_posts_nav(); ?>
+             <?php wpbeginner_numeric_posts_nav(); ?>
 
 		</div>
 	</section>

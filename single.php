@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 <main>
 	<section class="breadcrumb_site text-center" >
-            <div class="container">
-            	<?php the_title(); ?>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <?php   
-                    if(function_exists('bcn_display')) {
-                        bcn_display(false,true,false,false); 
-                    } 
-                    ?>
-                    </ol>
-                </nav>
-            </div>
-        </section>
+        <div class="container container-v1">
+        	<h1 class="title-page mb-0"><?php the_title(); ?></h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <?php   
+                if(function_exists('bcn_display')) {
+                    bcn_display(false,true,false,false); 
+                } 
+                ?>
+                </ol>
+            </nav>
+        </div>
+    </section>
 	<section class="blog-single">
-		<div class="container">
+		<div class="container container-v1">
 			<div class="row">			
 				<div class="col-lg-8">
 					<?php

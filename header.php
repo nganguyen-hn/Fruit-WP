@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?php the_title(); ?></title>
-    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/iconlogo.png">
+    <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.png">
     <?php wp_head(); ?>
 </head>
 <body>
     <div class="search-full-destop">
         <div class="search-eveland js-box-search">
             <div class="drawer-search-top">
-                <h3 class="drawer-search-title">Nhập từ khóa </h3>
+                <h3 class="drawer-search-title">Start typing and hit Enter</h3>
             </div>
-            <form class="wg-search-form" action="/search">
-                <input type="text" placeholder="Search ..." class="search-input">
+            <form action="<?php bloginfo('url'); ?>/" method="GET" class="wg-search-form" role="search">
+                <input type="hidden" name="post_type" value="product" />
+                <input type="text" name="s" placeholder="Search ..." class="search-input">
                 <button type="submit"> <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 512.005 512.005" style="enable-background:new 0 0 512.005 512.005;" xml:space="preserve">
                     <g>
@@ -101,7 +102,7 @@
                                         'theme_location'    => 'main-menu',
                                         'container_class' => 'menu ',
                                         'container'       => false,
-                                        'menu_class'      => 'navbar-nav m-auto',
+                                        'menu_class'      => 'navbar-nav m-auto m-0',
                                         'fallback_cb'     => 'bs4navwalker::fallback',
                                         'walker'          => new bs4navwalker()
                                     )); ?>

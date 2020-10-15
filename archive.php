@@ -23,7 +23,7 @@ get_header();
                     while (have_posts() ) { 
                 the_post();                              
                 ?>
-				 <div class="col-lg-6">
+				 <div class="col-lg-6 col-md-6">
                     <div class="item-blog">
                         <div class="box-imgblog">
                             <a href="<?php the_permalink();?>" title="<?php the_title(); ?>">
@@ -59,7 +59,7 @@ get_header();
                     wp_reset_postdata(); 
                 ?>
 			</div>
-             <?php wpbeginner_numeric_posts_nav(); ?>
+             <?php wpbeginner_numeric_posts_navfruit(); ?>
 
 		</div>
 	</section>

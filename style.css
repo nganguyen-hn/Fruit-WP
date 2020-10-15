@@ -23,6 +23,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
   font-weight: 600; }
 @font-face {
   font-family: 'HelveticaNeue';
+  src: url("fonts/helveticaneuebolditalic.ttf");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: 'HelveticaNeue';
   src: url("fonts/helveticaneuelight.ttf");
   font-weight: 300; }
 html {
@@ -35,7 +40,7 @@ body {
   font-family: "HelveticaNeue", sans-serif;
   transition: all .5s ease; }
   body.activedestop {
-    margin-top: 500px;
+    margin-top: 350px;
     transition: all .5s ease; }
   body.cartover {
     overflow: hidden; }
@@ -684,8 +689,26 @@ header .menu_destop {
 
 .blog-page {
   margin-top: 120px; }
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .blog-page {
+      margin-top: 100px; } }
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .blog-page {
+      margin-top: 120px; } }
+  @media (min-width: 992px) and (max-width: 1023px) {
+    .blog-page {
+      margin-top: 100px; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .blog-page {
+      margin-top: 80px; } }
+  @media (max-width: 767px) {
+    .blog-page {
+      margin-top: 60px; } }
   .blog-page .item-blog {
     margin-bottom: 48px; }
+    @media (max-width: 575.98px) {
+      .blog-page .item-blog {
+        margin-bottom: 30px; } }
     .blog-page .item-blog .box-imgblog {
       overflow: hidden;
       border-radius: 3px; }
@@ -707,6 +730,9 @@ header .menu_destop {
           text-decoration: none;
           text-transform: uppercase;
           transition: 0.5s; }
+          @media (min-width: 768px) and (max-width: 991px) {
+            .blog-page .item-blog .info-blog .title-blog a {
+              font-size: 16px; } }
           .blog-page .item-blog .info-blog .title-blog a:hover {
             color: #699800; }
       .blog-page .item-blog .info-blog .date-admin-cmt ul {
@@ -719,6 +745,9 @@ header .menu_destop {
           padding: 2px 12px 2px 10px;
           border-left: 1px solid #b3b3b3;
           margin: 0; }
+          @media (max-width: 575.98px) {
+            .blog-page .item-blog .info-blog .date-admin-cmt ul li {
+              font-size: 13px; } }
           .blog-page .item-blog .info-blog .date-admin-cmt ul li:first-child {
             padding: 2px 12px 2px 0px;
             border-left: none; }
@@ -747,6 +776,21 @@ header .menu_destop {
             padding-left: 12px; }
   .blog-page .pagination-nav {
     margin-bottom: 105px; }
+    @media (min-width: 1200px) and (max-width: 1500px) {
+      .blog-page .pagination-nav {
+        margin-bottom: 95px; } }
+    @media (min-width: 1024px) and (max-width: 1199px) {
+      .blog-page .pagination-nav {
+        margin-bottom: 85px; } }
+    @media (min-width: 992px) and (max-width: 1023px) {
+      .blog-page .pagination-nav {
+        margin-bottom: 75px; } }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .blog-page .pagination-nav {
+        margin-bottom: 65px; } }
+    @media (max-width: 767px) {
+      .blog-page .pagination-nav {
+        margin-bottom: 50px; } }
     .blog-page .pagination-nav ul li {
       display: inline-block;
       margin-right: 3px; }
@@ -776,6 +820,76 @@ header .menu_destop {
 
 .blog-single {
   margin-top: 120px; }
+  .blog-single .image-single-blog img {
+    border-radius: 3px; }
+  .blog-single .date-admin-cmt {
+    margin-top: 22px; }
+    .blog-single .date-admin-cmt ul {
+      margin-bottom: 19px; }
+      .blog-single .date-admin-cmt ul li {
+        color: #b3b3b3;
+        font-size: 15px;
+        font-weight: 300;
+        font-family: "HelveticaNeue", sans-serif;
+        padding: 2px 12px 2px 10px;
+        border-left: 1px solid #b3b3b3;
+        margin: 0; }
+        @media (max-width: 575.98px) {
+          .blog-single .date-admin-cmt ul li {
+            font-size: 13px; } }
+        .blog-single .date-admin-cmt ul li:first-child {
+          padding: 2px 12px 2px 0px;
+          border-left: none; }
+  .blog-single .blog-single-content p {
+    font-size: 15px;
+    line-height: 1.6; }
+  .blog-single .blog-single-content h1, .blog-single .blog-single-content h2, .blog-single .blog-single-content h3, .blog-single .blog-single-content h4, .blog-single .blog-single-content h5 {
+    font-size: 20px;
+    margin: 30px 0 18px 0; }
+  .blog-single .blog-single-content blockquote {
+    font-size: 17px;
+    font-family: "HelveticaNeue", sans-serif;
+    font-style: italic;
+    width: 64%;
+    position: relative;
+    margin-top: 35px;
+    margin-left: 13%;
+    margin-bottom: 43px; }
+    .blog-single .blog-single-content blockquote:after {
+      content: url("http://localhost/Nga/Fruit/wp-content/themes/Fruit/images/icon-blog.png");
+      position: absolute;
+      top: 0;
+      left: -35px; }
+    .blog-single .blog-single-content blockquote p {
+      line-height: 1.95; }
+  .blog-single .list-tag-social {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 8px 15px;
+    margin-top: 19px; }
+    .blog-single .list-tag-social .tag {
+      color: #699800;
+      font-size: 13px; }
+      .blog-single .list-tag-social .tag i {
+        padding-right: 8px; }
+      .blog-single .list-tag-social .tag a {
+        text-decoration: none;
+        color: #b2b2b2;
+        transition: 0.3s;
+        font-size: 13px; }
+        .blog-single .list-tag-social .tag a:hover {
+          color: #699800; }
+  .blog-single .comments {
+    margin-top: 50px; }
+    .blog-single .comments .comment-reply-title {
+      font-size: 20px;
+      font-family: "HelveticaNeue", sans-serif;
+      color: #333333;
+      font-weight: 600; }
+    .blog-single .comments .comments-inner {
+      margin-top: 32px; }
+      .blog-single .comments .comments-inner li::marker {
+        content: ''; }
 
 /*style sidebar*/
 .widget-sidebar {
@@ -790,6 +904,29 @@ header .menu_destop {
       font-family: "HelveticaNeue", sans-serif;
       color: #333333;
       font-weight: 600; }
+  .widget-sidebar .form-search {
+    position: relative; }
+    .widget-sidebar .form-search input {
+      border: 1px solid #e6e6e6;
+      height: 38px;
+      border-radius: 3px; }
+      .widget-sidebar .form-search input::placeholder {
+        color: #b2b2b2; }
+      .widget-sidebar .form-search input:focus {
+        border-color: #e6e6e6; }
+    .widget-sidebar .form-search button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: transparent;
+      height: 100%;
+      border: none;
+      padding: 0 15px;
+      font-size: 15px;
+      font-weight: 300;
+      color: #b2b2b2; }
+  .widget-sidebar .custom-html-widget .sidebar_title {
+    margin-top: 48px; }
   .widget-sidebar .description-form {
     font-size: 15px;
     color: #b3b3b3;
@@ -877,6 +1014,22 @@ footer {
   footer .footer-top {
     padding-top: 121px;
     padding-bottom: 117px; }
+    @media (min-width: 1200px) and (max-width: 1500px) {
+      footer .footer-top {
+        padding: 110px 0; } }
+    @media (min-width: 1024px) and (max-width: 1199px) {
+      footer .footer-top {
+        padding: 90px 0; } }
+    @media (min-width: 992px) and (max-width: 1023px) {
+      footer .footer-top {
+        padding: 80px 0; } }
+    @media (min-width: 768px) and (max-width: 991px) {
+      footer .footer-top {
+        padding: 70px 0; } }
+    @media (max-width: 767px) {
+      footer .footer-top {
+        padding: 50px 0;
+        text-align: center; } }
     footer .footer-top .padding-item-top {
       padding-top: 17px; }
     footer .footer-top ul {
@@ -886,11 +1039,25 @@ footer {
     footer .footer-top .logo {
       margin-left: 56px;
       margin-bottom: 10px; }
+      @media (max-width: 575.98px) {
+        footer .footer-top .logo {
+          margin-left: unset;
+          text-align: center; } }
+      @media (min-width: 768px) and (max-width: 1200px) {
+        footer .footer-top .logo {
+          margin-bottom: 0px; } }
     footer .footer-top ul {
       width: fit-content;
       text-align: left; }
+      @media (max-width: 575.98px) {
+        footer .footer-top ul {
+          text-align: center;
+          width: unset; } }
       footer .footer-top ul li {
         line-height: 2.65; }
+        @media (max-width: 575.98px) {
+          footer .footer-top ul li {
+            line-height: 1.8; } }
         footer .footer-top ul li a {
           font-size: 15px;
           color: #b3b3b3;
@@ -906,6 +1073,11 @@ footer {
     padding-top: 30px;
     padding-bottom: 20px;
     color: #b2b2b2; }
+    @media (max-width: 575.98px) {
+      footer .copyright {
+        text-align: center; }
+        footer .copyright .float-right {
+          float: unset !important; } }
     footer .copyright p {
       font-size: 15px;
       font-weight: 300;
@@ -916,6 +1088,9 @@ footer {
         transition: all 0.3s ease; }
         footer .copyright p a:hover {
           color: #699800; }
+    @media (max-width: 575.98px) {
+      footer .copyright .list-social-item {
+        margin-top: 30px; } }
     footer .copyright .list-social-item li {
       margin-right: 8px; }
       footer .copyright .list-social-item li:last-child {
@@ -971,13 +1146,32 @@ footer {
   padding: 180px 0 170px 0;
   font-weight: 600;
   font-size: 32px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  background-position: center center; }
+  @media (min-width: 1200px) and (max-width: 1500px) {
+    .breadcrumb_site {
+      padding: 160px 0; } }
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .breadcrumb_site {
+      padding: 140px 0; } }
+  @media (min-width: 992px) and (max-width: 1023px) {
+    .breadcrumb_site {
+      padding: 120px 0; } }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .breadcrumb_site {
+      padding: 100px 0; } }
+  @media (max-width: 767px) {
+    .breadcrumb_site {
+      padding: 80px 0; } }
   .breadcrumb_site .title-page {
     font-size: 32px;
     font-weight: 600;
     color: #333333;
     letter-spacing: 1px;
     font-family: "HelveticaNeue", sans-serif; }
+    @media (max-width: 575.98px) {
+      .breadcrumb_site .title-page {
+        font-size: 25px; } }
   .breadcrumb_site .breadcrumb {
     background-color: transparent;
     margin: 0 auto;
@@ -988,6 +1182,9 @@ footer {
     font-weight: 500;
     text-transform: capitalize;
     font-family: "HelveticaNeue", sans-serif; }
+    @media (max-width: 575.98px) {
+      .breadcrumb_site .breadcrumb {
+        font-size: 16px; } }
     .breadcrumb_site .breadcrumb span {
       margin: 0 5px; }
     .breadcrumb_site .breadcrumb .current-item {

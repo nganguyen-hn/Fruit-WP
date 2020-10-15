@@ -4,9 +4,9 @@ include ('include/widget_new_post.php');
 include ('include/widget_list_tag.php');
 include ('include/widget_category_product.php');
 include('include/bs4navwalker.php');
-add_action( 'after_setup_theme', 'setup_theme' );
+add_action( 'after_fruit_setup', 'fruit_setup' );
 add_filter( 'widget_text', 'do_shortcode' );
-function setup_theme(){
+function fruit_setup(){
 	add_theme_support( 'post-thumbnails' ); // images admin
 	add_image_size( 'archive_thumb', 570, 400, true ); // images category
 	add_image_size( 'archive_single', 770, 480, true ); // images single
@@ -14,7 +14,12 @@ function setup_theme(){
 register_nav_menu('main-menu', 'Main Menu Desktop');
 }
 
-function widget_theme(){
+
+
+load_theme_textdomain( 'fruit' );
+
+
+function widget_themefruit(){
 	 register_sidebar( array(
         'name'          => __( 'Sidebar', 'Fruit' ),
         'id'            => 'sidebar_1',
@@ -72,29 +77,87 @@ function widget_theme(){
         'after_title'   => '',
     ) );
 }
-add_action( 'widgets_init', 'widget_theme' );
+add_action( 'widgets_init', 'widget_themefruit' );
 
 
-/* add css js */
-add_action('wp_enqueue_scripts', 'css_style');
-function css_style(){
+/* add css*/
+function fruit_css_style(){
     wp_register_style( 'styles-font-awesome',get_template_directory_uri() . '/css/font-awesome.min.css');
     wp_enqueue_style( 'styles-font-awesome' );
     wp_register_style( 'styles-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
     wp_enqueue_style( 'styles-bootstrap' );
     wp_register_style( 'styles-css', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'styles-css' );
-    
+    }
+add_action('wp_enqueue_scripts', 'fruit_css_style');
 
+function fruit_all_file_js(){
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.bundle.min.js',['jquery'], false, true );
-    wp_enqueue_script('my-js', get_template_directory_uri() . '/js/myjs.js',['jquery'], false, true );
-
+    wp_enqueue_script('my-js', get_template_directory_uri() . '/js/fruit.js',['jquery'], false, true );
 }
+add_action('wp_enqueue_scripts', 'fruit_all_file_js');
+/* add js */
+
+
+
+// hook title from commnet
+function fruit_hook_title_formcm( $defaults ) {
+  $defaults['title_reply'] = __( 'Leave a comment' );
+  return $defaults;
+}
+add_filter( 'comment_form_defaults', 'fruit_hook_title_formcm' );
+
+
+
+
+$commenter = wp_get_current_commenter();
+$req = get_option( 'require_name_email' );
+$aria_req = ( $req ? " aria-required='true'" : '' );
+$fields =  array(
+    'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
+        '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+    'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
+        '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+);
+ 
+$comments_args = array(
+    'fields' =>  $fields
+);
+ 
+comment_form($comments_args);
+
+
+function remove_comment_fields($fields) {
+    unset($fields['url']);
+    return $fields;
+}
+add_filter('comment_form_default_fields','remove_comment_fields');
+
+
+function add_comment_fields($fields) {
+ 
+    $fields['age'] = '<p class="comment-form-age"><label for="age">' . __( 'Age' ) . '</label>' .
+        '<input id="age" name="age" type="text" size="30" /></p>';
+    return $fields;
+ 
+}
+add_filter('comment_form_default_fields','add_comment_fields');
+
+function add_comment_meta_values($comment_id) {
+ 
+    if(isset($_POST['age'])) {
+        $age = wp_filter_nohtml_kses($_POST['age']);
+        add_comment_meta($comment_id, 'age', $age, false);
+    }
+ 
+}
+add_action ('comment_post', 'add_comment_meta_values', 1);
+
 
 
 
 // adding Numeric Pagination Post
-function wpbeginner_numeric_posts_nav() {
+function wpbeginner_numeric_posts_navfruit() {
     if( is_singular() )
         return;
     global $wp_query;

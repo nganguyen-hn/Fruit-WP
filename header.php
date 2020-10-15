@@ -12,11 +12,11 @@
     <div class="search-full-destop">
         <div class="search-eveland js-box-search">
             <div class="drawer-search-top">
-                <h3 class="drawer-search-title">Start typing and hit Enter</h3>
+                <h3 class="drawer-search-title"><?php _e('Start typing and hit Enter'); ?></h3>
             </div>
             <form action="<?php bloginfo('url'); ?>/" method="GET" class="wg-search-form" role="search">
                 <input type="hidden" name="post_type" value="product" />
-                <input type="text" name="s" placeholder="Search ..." class="search-input">
+                <input type="text" name="s" placeholder="<?php _e('Search ...') ?>" class="search-input">
                 <button type="submit"> <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 512.005 512.005" style="enable-background:new 0 0 512.005 512.005;" xml:space="preserve">
                     <g>

@@ -22,8 +22,10 @@
 					while ( have_posts() ) { 
 						the_post();
 						?>
-
-						<?php the_post_thumbnail('archive_single', array('class'=>'img-fluid')); ?>
+						<div class="image-single-blog">
+							<?php the_post_thumbnail('archive_single', array('class'=>'w-100 img-fluid')); ?>
+						</div>
+						
 						<div class="date-admin-cmt">
 							<ul class="list-inline">
 								<li class="list-inline-item">
@@ -33,7 +35,7 @@
 									<?php the_author(); ?>
 								</li>
 								<li class="list-inline-item">
-									<a href="#"><?php get_comment(); ?></a>
+									<?php echo get_comments_number(); ?> comments
 								</li>
 							</ul>
 						</div>
@@ -41,7 +43,14 @@
 						<div class="blog-single-content">
 							<?php the_content(); ?>					
 						</div>
-
+						<div class="row">
+					<div class="col-lg-12">
+						<div class="list-tag-social">
+							<div class="tag"><i class="fa fa-tag"></i><?php the_tags( 'Tags: ', ', ', '<br />' ); ?> </div>
+							
+						</div>
+					</div>
+				</div>
 
 
 					<?php } ?>
@@ -50,6 +59,7 @@
 					<?php if ( comments_open() || get_comments_number() ) :
 					comments_template();
 				endif; ?>
+				
 				</div>
 				<div class="col-lg-4">
 					<div class="sidebar">

@@ -1,77 +1,128 @@
 <?php
-/*
-* Author http://levantoan.com
-*/
-if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-	die ('Please do not load this page directly. Thanks!');
+/**
+ * The template file for displaying the comments and comment form for the
+ * Twenty Twenty theme.
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twenty
+ * @since Twenty Twenty 1.0
+ */
 
-if ( post_password_required() ) { ?>
-	<p class="nocomments">This post is password protected. Enter the password to view comments.</p>
-<?php
+/*
+ * If the current post is protected by a password and
+ * the visitor has not yet entered the password we will
+ * return early without loading the comments.
+*/
+if ( post_password_required() ) {
 	return;
 }
-?>
-<div id="comments" class="comments-area">
-	<?php if ( have_comments() ) : ?>
-	<span class="title_comment">
-	    <?php
-			printf( _nx( '1 bình luận', '%1$s bình luận', get_comments_number(), '', 'devvn' ),
-				number_format_i18n( get_comments_number() ));
+
+if ( $comments ) {
+	?>
+
+	<div class="comments" id="comments">
+
+		<?php
+		$comments_number = absint( get_comments_number() );
 		?>
-	</span>
-	<?php endif;?>
+
+		<div class="comments-header section-inner small max-percentage">
+
+			<h2 class="comment-reply-title">
+			<?php
+			if ( ! have_comments() ) {
+				_e( 'Leave a comment' );
+			} elseif ( '1' === $comments_number ) {
+				/* translators: %s: Post title. */
+				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title' ), get_the_title() );
+			} else {
+				printf(
+					/* translators: 1: Number of comments, 2: Post title. */
+					_nx(
+						'%1$s reply on &ldquo;%2$s&rdquo;',
+						'%1$s replies on &ldquo;%2$s&rdquo;',
+						$comments_number,
+						'comments title'
+						
+					),
+					number_format_i18n( $comments_number ),
+					get_the_title()
+				);
+			}
+
+			?>
+			</h2><!-- .comments-title -->
+
+		</div><!-- .comments-header -->
+
+		<div class="comments-inner section-inner thin max-percentage">
+
+			<?php
+			wp_list_comments(
+
+			);
+
+			$comment_pagination = paginate_comments_links(
+				array(
+					'echo'      => false,
+					'end_size'  => 0,
+					'mid_size'  => 0,
+					'next_text' => __( 'Newer Comments' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments' ),
+				)
+			);
+
+			if ( $comment_pagination ) {
+				$pagination_classes = '';
+
+				// If we're only showing the "Next" link, add a class indicating so.
+				if ( false === strpos( $comment_pagination, 'prev page-numbers' ) ) {
+					$pagination_classes = ' only-next';
+				}
+				?>
+
+				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments' ); ?>">
+					<?php echo wp_kses_post( $comment_pagination ); ?>
+				</nav>
+
+				<?php
+			}
+			?>
+
+		</div><!-- .comments-inner -->
+
+	</div><!-- comments -->
+
 	<?php
-		if ( ! comments_open() && get_comments_number() ) : ?>
-		<p class="nocomments"><?php _e( 'Bình luận bị đóng.' , 'devvn' ); ?></p>
-	<?php endif; ?>
-	<?php if ( have_comments() ) : ?>
-		<ol class="commentlist_mw">
-			<?php wp_list_comments('type=comment&callback=devvn_comment'); ?>
-		</ol><!-- .commentlist -->
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :?>
-		<nav id="comment-nav-below" class="navigation" role="navigation">
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; trước', '' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Tiếp &rarr;', '' ) ); ?></div>
-		</nav>
-		<?php endif;?>
-	<?php endif; // have_comments() ?>
-	
-	<span class="title_comment">Bình luận của bạn</span>
-	<?php if ( comments_open() ) : ?>
-	<div id="formcmmaxweb">
-	
-	    <div class="cancel-comment-reply">
-	    	<small><?php cancel_comment_reply_link(); ?></small>
-	    </div>
-	
-	    <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-	    <p><a href="<?php echo wp_login_url( get_permalink() ); ?>"><?php _e('Đăng nhập','devvn')?></a> để bình luận.</p>
-	    <?php else : ?>
-	
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
-	
-	    <?php if ( is_user_logged_in() ) : ?>
-			<p class="nameuser"><?php _e('Bình luận với tên:','devvn')?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a></p>    
-	    <?php endif; ?>
-	     	<p>
-	        	<textarea name="comment" id="comment" cols="50" rows="4" tabindex="4" placeholder="<?php _e('Bình luận','devvn')?>"></textarea>
-	        </p>
-	    <?php if(!is_user_logged_in()):?>    
-			<div class="name-email">
-		      <p>
-		      	<input placeholder="<?php _e('Họ và tên','devvn')?>" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author);?>" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-		      </p>
-		      <p>
-		        <input placeholder="<?php _e('Email','devvn')?>" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-		      </p>
-			</div>
-	    <?php endif;?>
-	        <p><input name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Gửi','devvn')?>" />
-	        <?php comment_id_fields(); ?>
-	        </p>
-	        <?php do_action('comment_form', $post->ID); ?>	
-	    </form>	
-	        <?php endif; // If registration required and not logged in ?>	       
-	    </div>
-	<?php endif; // if you delete this the sky will fall on your head ?>
-</div><!-- #comments .comments-area -->
+}
+
+if ( comments_open() || pings_open() ) {
+
+	if ( $comments ) {
+		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
+	}
+
+	comment_form(
+		array(
+			'class_form'         => 'section-inner thin max-percentage',
+			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
+			'title_reply_after'  => '</h2>',
+		)
+	);
+
+} elseif ( is_single() ) {
+
+	if ( $comments ) {
+		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
+	}
+
+	?>
+
+	<div class="comment-respond" id="respond">
+
+		<p class="comments-closed"><?php _e( 'Comments are closed.' ); ?></p>
+
+	</div><!-- #respond -->
+
+	<?php
+}

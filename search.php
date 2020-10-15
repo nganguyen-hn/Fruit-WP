@@ -13,7 +13,7 @@
 						<h1><?php the_title(); ?></h1>
 						<a href="<?php the_permalink();?>" title="<?php the_title();?>">
                     <?php if ( has_post_thumbnail() ) {
-                        the_post_thumbnail('New_Arrivals', array('class' =>'product_image'));
+                        the_post_thumbnail('archive_single', array('class' =>'img-fluid'));
                     }
                     else {
                         echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) 

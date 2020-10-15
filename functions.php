@@ -108,54 +108,6 @@ function fruit_hook_title_formcm( $defaults ) {
 add_filter( 'comment_form_defaults', 'fruit_hook_title_formcm' );
 
 
-
-
-$commenter = wp_get_current_commenter();
-$req = get_option( 'require_name_email' );
-$aria_req = ( $req ? " aria-required='true'" : '' );
-$fields =  array(
-    'author' => '<p class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
-        '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-    'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) .
-        '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-);
- 
-$comments_args = array(
-    'fields' =>  $fields
-);
- 
-comment_form($comments_args);
-
-
-function remove_comment_fields($fields) {
-    unset($fields['url']);
-    return $fields;
-}
-add_filter('comment_form_default_fields','remove_comment_fields');
-
-
-function add_comment_fields($fields) {
- 
-    $fields['age'] = '<p class="comment-form-age"><label for="age">' . __( 'Age' ) . '</label>' .
-        '<input id="age" name="age" type="text" size="30" /></p>';
-    return $fields;
- 
-}
-add_filter('comment_form_default_fields','add_comment_fields');
-
-function add_comment_meta_values($comment_id) {
- 
-    if(isset($_POST['age'])) {
-        $age = wp_filter_nohtml_kses($_POST['age']);
-        add_comment_meta($comment_id, 'age', $age, false);
-    }
- 
-}
-add_action ('comment_post', 'add_comment_meta_values', 1);
-
-
-
-
 // adding Numeric Pagination Post
 function wpbeginner_numeric_posts_navfruit() {
     if( is_singular() )

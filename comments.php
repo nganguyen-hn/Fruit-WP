@@ -1,128 +1,62 @@
 <?php
-/**
- * The template file for displaying the comments and comment form for the
- * Twenty Twenty theme.
- *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
- */
 
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
-*/
 if ( post_password_required() ) {
 	return;
 }
-
-if ( $comments ) {
-	?>
-
-	<div class="comments" id="comments">
-
-		<?php
-		$comments_number = absint( get_comments_number() );
-		?>
-
-		<div class="comments-header section-inner small max-percentage">
-
-			<h2 class="comment-reply-title">
+?>
+<div id="comments" class="comments-area">
+	<?php if ( have_comments() ) : /*comment list*/ ?>
+		<h6 class="comments-title">
+			<?php echo sprintf( _nx( 'Comment ( 1 )', '%s Comments ', get_comments_number(), 'comment count' ), get_comments_number() ); //phpcs:ignore ?>
+		</h6>
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :/*comment navigation*/ ?>
+			<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation' ); ?></h2>
+				<div class="cmt-previous"><?php previous_comments_link( esc_html__( 'Older Comments' ) ); ?></div>
+				<div class="cmt-next"><?php next_comments_link( esc_html__( 'Newer Comments ' ) ); ?></div>
+			</nav>
+		<?php endif; ?>
+		<div class="comment-list">
 			<?php
-			if ( ! have_comments() ) {
-				_e( 'Leave a comment' );
-			} elseif ( '1' === $comments_number ) {
-				/* translators: %s: Post title. */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title' ), get_the_title() );
-			} else {
-				printf(
-					/* translators: 1: Number of comments, 2: Post title. */
-					_nx(
-						'%1$s reply on &ldquo;%2$s&rdquo;',
-						'%1$s replies on &ldquo;%2$s&rdquo;',
-						$comments_number,
-						'comments title'
-						
-					),
-					number_format_i18n( $comments_number ),
-					get_the_title()
+				wp_list_comments(
+					array(
+						'avatar_size' => '50',
+						'callback'    => 'fruit_comment_list',
+					)
 				);
-			}
-
 			?>
-			</h2><!-- .comments-title -->
-
-		</div><!-- .comments-header -->
-
-		<div class="comments-inner section-inner thin max-percentage">
-
-			<?php
-			wp_list_comments(
-
+		</div>
+	<?php endif; ?>
+	<?php if ( ! comments_open() ) : /*comment disable*/ ?>
+		<p class="no-comments"><?php esc_html_e( 'Comments are closed.' ); ?></p>
+		<?php
+		/*comment form*/
+		else :
+			$commenter = wp_get_current_commenter();
+			$fields = array(
+				'author' => '<input id="author" type="text" name="author" value="' . esc_attr( $commenter['comment_author'] ) . '" placeholder="' . esc_attr__( 'Your Name' ) . '" required>',
+				'email'  => '<input id="email" type="email" name="email" value="' . esc_attr( $commenter['comment_author_email'] ) . '" placeholder="' . esc_attr__( 'Your Email' ) . '" required>',
+				
 			);
-
-			$comment_pagination = paginate_comments_links(
-				array(
-					'echo'      => false,
-					'end_size'  => 0,
-					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments' ),
-				)
+			$args = array(
+				'title_reply_before' => '<h6 id="reply-title" class="comment-reply-title">',
+				'title_reply'        => esc_html__( 'Leave a comment' ),
+				'title_reply_after'  => '</h6>',
+				'fields'             => apply_filters( 'comment_form_default_fields', $fields ),
+				'comment_field'      => '<textarea id="comment" name="comment" placeholder="' . esc_attr__( 'Your Comment' ) . '" required></textarea>',
+				'label_submit'       => esc_html__( 'Submit' ),
 			);
-
-			if ( $comment_pagination ) {
-				$pagination_classes = '';
-
-				// If we're only showing the "Next" link, add a class indicating so.
-				if ( false === strpos( $comment_pagination, 'prev page-numbers' ) ) {
-					$pagination_classes = ' only-next';
-				}
-				?>
-
-				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments' ); ?>">
-					<?php echo wp_kses_post( $comment_pagination ); ?>
-				</nav>
-
-				<?php
-			}
-			?>
-
-		</div><!-- .comments-inner -->
-
-	</div><!-- comments -->
-
-	<?php
-}
-
-if ( comments_open() || pings_open() ) {
-
-	if ( $comments ) {
-		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
-	}
-
-	comment_form(
-		array(
-			'class_form'         => 'section-inner thin max-percentage',
-			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h2>',
-		)
-	);
-
-} elseif ( is_single() ) {
-
-	if ( $comments ) {
-		echo '<hr class="styled-separator is-style-wide" aria-hidden="true" />';
-	}
-
-	?>
-
-	<div class="comment-respond" id="respond">
-
-		<p class="comments-closed"><?php _e( 'Comments are closed.' ); ?></p>
-
-	</div><!-- #respond -->
-
-	<?php
-}
+			comment_form( $args );
+			/*remove novalidate on form */
+			wp_add_inline_script(
+				'jost-custom',
+				"document.addEventListener( 'DOMContentLoaded', function(){
+					var cmtForm = document.getElementById( 'commentform' );
+					if( ! cmtForm ) return;
+					cmtForm.removeAttribute( 'novalidate' );
+				} );",
+				'after'
+			);
+		endif;
+		?>
+</div>

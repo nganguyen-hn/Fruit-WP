@@ -100,14 +100,6 @@ add_action('wp_enqueue_scripts', 'fruit_all_file_js');
 
 
 
-// hook title from commnet
-function fruit_hook_title_formcm( $defaults ) {
-  $defaults['title_reply'] = __( 'Leave a comment' );
-  return $defaults;
-}
-add_filter( 'comment_form_defaults', 'fruit_hook_title_formcm' );
-
-
 // adding Numeric Pagination Post
 function wpbeginner_numeric_posts_navfruit() {
     if( is_singular() )
@@ -159,6 +151,79 @@ function wpbeginner_numeric_posts_navfruit() {
         printf( '<li class="">%s</li>' . "\n", get_next_posts_link('<i class="fa fa-angle-right"></i>') );
     echo ' </ul></div>' . "\n";
 }
+
+
+
+if ( ! function_exists( 'fruit_comment_list' ) ) {
+    function fruit_comment_list( $comment, $args, $depth ) {
+        $GLOBALS['comment'] = $comment;
+        switch ( $comment->comment_type ) :
+            case 'pingback':
+            case 'trackback':
+                ?>
+                <div class="comment-post-pingback">
+                    <span><?php esc_html_e( 'Pingback:' ); ?></span><?php comment_author_link(); ?><?php edit_comment_link( esc_html__( 'Edit' ) ); ?>
+                </div>
+                <?php
+                break;
+            default:
+                ?>
+                <div id="comment-<?php comment_ID(); ?>" class="comment-item align-items-center">
+                    <div class="comment-avatar item">
+                        <?php echo get_avatar( $comment, $size = 50 ); ?>
+                    </div>
+                    <div class="comment-content item">
+                        <div class="comment-text">
+                            <?php if ( '0' === $comment->comment_approved ) { ?>
+                                <em>
+                                    <?php esc_html_e( 'Your comment is awaiting moderation.' ); ?>
+                                </em>
+                            <?php } ?>
+                            <?php comment_text(); ?>
+                        </div>
+                        <div class="d-flex flex-wrap author-date align-items-center">
+                            <strong class="comment-author">
+                                <a href="#comment-<?php comment_ID(); ?>" class="comment-author-name">
+                                    <?php echo esc_html( get_comment_author() ); ?>
+                                </a>
+                                <span class="comment-time">
+                                    <?php fruit_date_format(); ?>
+                                </span>
+                            </strong>
+                            <div class="comment-info">
+                                <i class="fa fa-share"></i>
+                                <?php
+                                    echo get_comment_reply_link(
+                                        array_merge(
+                                            $args,
+                                            array(
+                                                'depth'      => $depth,
+                                                'reply_text' => esc_html__( 'Reply' ),
+                                                'max_depth'  => $args['max_depth'],
+                                            )
+                                        )
+                                    );
+                                    ?>
+                                <?php edit_comment_link( esc_html__( 'Edit' ), ' ', '' ); ?>
+                            </div>
+                        </div>                                         
+                        
+                        
+                    </div>
+                </div>
+                <?php
+                break;
+        endswitch;
+    }
+}
+
+
+
+function fruit_date_format() {
+        $date_format = get_the_date( get_option( 'date_format' ) );
+        return $date_format;
+    }
+
 
 ?>
 

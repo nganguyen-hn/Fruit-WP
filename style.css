@@ -1397,4 +1397,30 @@ footer {
       font-size: 13px;
       margin-top: 5px; }
 
+.widget-testimonial-fruit {
+  overflow: hidden; }
+  .widget-testimonial-fruit .box-img-item {
+    position: relative;
+    transition: 0.3s; }
+    .widget-testimonial-fruit .box-img-item .fruit-list-icon-contact {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }
+      .widget-testimonial-fruit .box-img-item .fruit-list-icon-contact li a {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: inherit;
+        text-align: center; }
+
+.single_page_elementor p {
+  margin-bottom: 0; }
+.single_page_elementor .container-v2 {
+  width: 1200px;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 100%; }
+.single_page_elementor .elementor-section.elementor-section-boxed > .elementor-container {
+  max-width: 1200px; }
+
 /*# sourceMappingURL=style.css.map */

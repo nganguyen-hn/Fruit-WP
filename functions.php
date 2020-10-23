@@ -216,7 +216,7 @@ if ( ! function_exists( 'fruit_comment_list' ) ) {
 }
 
 
-require get_template_directory() . '/custom-widgets/my-widgets.php';
+require get_template_directory() . '/include/custom-widgets-elementor/my-widgets.php';
 
 
 function fruit_date_format() {

@@ -4,19 +4,29 @@ require get_template_directory() . '/include/widget_new_post.php';
 require get_template_directory() . '/include/widget_list_tag.php';
 require get_template_directory() . '/include/widget_category_product.php';
 require get_template_directory() . '/include/bs4navwalker.php';
+require get_template_directory() . '/include/custom-widgets-elementor/my-widgets.php';
 add_action( 'after_fruit_setup', 'fruit_setup' );
 add_filter( 'widget_text', 'do_shortcode' );
 function fruit_setup(){
 	add_theme_support( 'post-thumbnails' ); // images admin
 	add_image_size( 'archive_thumb', 570, 400, true ); // images category
+    add_image_size( 'archive_product', 370, 300, true ); // images category product
 	add_image_size( 'archive_single', 770, 480, true ); // images single
 	add_image_size( 'img_single_sidebar', 85, 85, true ); // images single
 register_nav_menu('main-menu', 'Main Menu Desktop');
 }
 
+add_action( 'widgets_init', 'fruit_setup' );
 
 
-load_theme_textdomain( 'fruit' );
+ function setup_woocommerce_support()
+{
+  add_theme_support('woocommerce');
+}
+add_action( 'after_setup_theme', 'setup_woocommerce_support' );
+
+
+load_theme_textdomain( 'fruit', 'setup_woocommerce_support' );
 
 
 function widget_themefruit(){
@@ -216,14 +226,10 @@ if ( ! function_exists( 'fruit_comment_list' ) ) {
 }
 
 
-require get_template_directory() . '/include/custom-widgets-elementor/my-widgets.php';
-
-
 function fruit_date_format() {
         $date_format = get_the_date( get_option( 'date_format' ) );
         return $date_format;
     }
-
 
 ?>
 

@@ -1423,4 +1423,11 @@ footer {
 .single_page_elementor .elementor-section.elementor-section-boxed > .elementor-container {
   max-width: 1200px; }
 
+.page-collection-product .tab-title li a {
+  text-decoration: none;
+  font-family: "HelveticaNeue", sans-serif;
+  font-size: 15px; }
+  .page-collection-product .tab-title li a :active {
+    color: #699800; }
+
 /*# sourceMappingURL=style.css.map */

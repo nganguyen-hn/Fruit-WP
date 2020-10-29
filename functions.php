@@ -11,6 +11,7 @@ function fruit_setup(){
 	add_theme_support( 'post-thumbnails' ); // images admin
 	add_image_size( 'archive_thumb', 570, 400, true ); // images category
     add_image_size( 'archive_product', 370, 300, true ); // images category product
+    add_image_size( 'archive_product_popup', 350, 500, true ); // images product popup
 	add_image_size( 'archive_single', 770, 480, true ); // images single
 	add_image_size( 'img_single_sidebar', 85, 85, true ); // images single
 register_nav_menu('main-menu', 'Main Menu Desktop');

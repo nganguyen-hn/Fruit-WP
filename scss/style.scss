@@ -1993,7 +1993,7 @@ footer{
                 right: -30px;
                 i{
                     font-size: 25px;
-                    color: #000;
+                    color: #fff;
                 }
             }
         .box-infocontent{
@@ -2019,6 +2019,7 @@ footer{
             font-size: 14px;
         }
         .view-more-popup{
+            margin-top: 30px;
             padding:8px 20px;
             display: inline-block;
             color: #fff;
@@ -2049,5 +2050,47 @@ footer{
     &.active{
         visibility:visible;
         opacity: 1;
+    }
+}
+
+.collection-product-page{
+    margin-top: 120px;
+    .filter-ordering{
+        display: flex;
+    }
+    .product-item-category-page{
+        border: 1px solid #e8e8e8;
+        border-radius: 3px;
+        margin-bottom: 30px;
+        a{
+            text-decoration: none;
+        }
+        .product_image{
+            position: relative;
+            .onsale{
+                position: absolute;
+                top: 15px;
+                left: 15px;
+                font-size: 11px;
+                color: #fff;
+                background-color: #ed1c24;
+                padding:4px 9px;
+                border-radius: 3px;
+                text-transform: uppercase;
+            }
+            img{
+                max-width: 100%;
+            }
+        }
+        .info-product-item{
+            .product-name{
+                font-size: 15px;
+                color: $color-main;
+            }
+        }
+    }
+    .widget-sidebar{
+        margin-right: 30px;
+        margin-left: 0;
     }
 }

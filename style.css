@@ -1054,6 +1054,13 @@ header .menu_destop {
           background-color: #333333; }
 
 /*style sidebar*/
+.widget-title {
+  font-size: 15px;
+  font-family: "HelveticaNeue", sans-serif;
+  color: #333333;
+  font-weight: 600;
+  text-transform: uppercase; }
+
 .widget-sidebar {
   margin-left: 30px; }
   @media (min-width: 768px) and (max-width: 991px) {
@@ -1176,7 +1183,7 @@ header .menu_destop {
     border: 1px solid #b2b2b2;
     transition: 0.5s;
     margin-right: 3px; }
-    .widget-sidebar .list_tag a:hover {
+    .widget-sidebar .list_tag a:hover, .widget-sidebar .list_tag a.active {
       color: #699800;
       border: 1px solid #699800; }
 
@@ -1576,15 +1583,33 @@ footer {
 .collection-product-page {
   margin-top: 120px; }
   .collection-product-page .filter-ordering {
-    display: flex; }
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center; }
+    .collection-product-page .filter-ordering .woocommerce-result-count {
+      width: 50%;
+      margin-bottom: 0; }
+    .collection-product-page .filter-ordering form {
+      width: 50%;
+      float: right; }
+      .collection-product-page .filter-ordering form select {
+        float: right;
+        padding: 11px 12px;
+        border: 1px solid #e5e5e5;
+        color: #808080; }
   .collection-product-page .product-item-category-page {
     border: 1px solid #e8e8e8;
     border-radius: 3px;
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 44px;
+    overflow: hidden;
+    transition: all 0.3s; }
     .collection-product-page .product-item-category-page a {
       text-decoration: none; }
     .collection-product-page .product-item-category-page .product_image {
-      position: relative; }
+      position: relative;
+      overflow: hidden; }
       .collection-product-page .product-item-category-page .product_image .onsale {
         position: absolute;
         top: 15px;
@@ -1594,12 +1619,54 @@ footer {
         background-color: #ed1c24;
         padding: 4px 9px;
         border-radius: 3px;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        z-index: 2; }
       .collection-product-page .product-item-category-page .product_image img {
-        max-width: 100%; }
-    .collection-product-page .product-item-category-page .info-product-item .product-name {
-      font-size: 15px;
-      color: #333333; }
+        max-width: 100%;
+        transition: all 0.3s; }
+    .collection-product-page .product-item-category-page .info-product-item {
+      margin-top: 13px; }
+      .collection-product-page .product-item-category-page .info-product-item .product-name {
+        font-size: 15px;
+        color: #333333;
+        font-family: "HelveticaNeue", sans-serif;
+        font-weight: 500;
+        transition: all 0.3s; }
+        .collection-product-page .product-item-category-page .info-product-item .product-name:hover {
+          color: #699800; }
+      .collection-product-page .product-item-category-page .info-product-item .product_price {
+        font-size: 15px;
+        color: #699800;
+        font-family: "HelveticaNeue", sans-serif;
+        display: block;
+        margin-top: 5px; }
+        .collection-product-page .product-item-category-page .info-product-item .product_price span {
+          color: #999999;
+          margin-left: 16px;
+          text-decoration: line-through; }
+      .collection-product-page .product-item-category-page .info-product-item .kk-star-ratings {
+        margin-top: 10px; }
+        .collection-product-page .product-item-category-page .info-product-item .kk-star-ratings .kksr-legend {
+          display: none; }
+    .collection-product-page .product-item-category-page .button {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 5px;
+      text-align: center;
+      background-color: #699800;
+      color: #fff;
+      transition: all 0.3s;
+      opacity: 0;
+      transform: translateY(100%); }
+      .collection-product-page .product-item-category-page .button:hover {
+        background-color: #333333; }
+    .collection-product-page .product-item-category-page:hover .button {
+      opacity: 1;
+      transform: unset; }
+    .collection-product-page .product-item-category-page:hover .product_image img {
+      transform: scale(1.05); }
   .collection-product-page .widget-sidebar {
     margin-right: 30px;
     margin-left: 0; }

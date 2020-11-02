@@ -4,6 +4,7 @@ require get_template_directory() . '/include/widget_new_post.php';
 require get_template_directory() . '/include/widget_list_tag.php';
 require get_template_directory() . '/include/widget_category_product.php';
 require get_template_directory() . '/include/bs4navwalker.php';
+require get_template_directory() . '/include/widget_bestsellers.php';
 require get_template_directory() . '/include/custom-widgets-elementor/my-widgets.php';
 add_action( 'after_fruit_setup', 'fruit_setup' );
 add_filter( 'widget_text', 'do_shortcode' );
@@ -34,6 +35,14 @@ function widget_themefruit(){
 	 register_sidebar( array(
         'name'          => __( 'Sidebar', 'Fruit' ),
         'id'            => 'sidebar_1',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+     register_sidebar( array(
+        'name'          => __( 'Sidebar Archive', 'Fruit' ),
+        'id'            => 'sidebar_archive',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h3 class="widget-title">',
@@ -228,20 +237,40 @@ if ( ! function_exists( 'fruit_comment_list' ) ) {
 
 
 function fruit_date_format() {
-        $date_format = get_the_date( get_option( 'date_format' ) );
-        return $date_format;
+    $date_format = get_the_date( get_option( 'date_format' ) );
+    return $date_format;
+}
+
+
+// remove rating archive
+
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+add_action('woocommerce_after_shop_loop_item_title','custom_woocommerce_template_loop_rating', 11 );
+function custom_woocommerce_template_loop_rating() {
+     echo kk_star_ratings();
+ }
+
+//name product in archive
+function woocommerce_template_loop_product_title(){
+    echo '<h6 class="product-name mb-0 text-uppercase">' . get_the_title() . '</h6>';
+}
+add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
+
+//price product in archive
+add_filter( 'woocommerce_get_price_html', 'fruit_price_edit', 100, 2 );
+function fruit_price_edit($price, $product){
+    if ( $product->is_on_sale()){
+        return '<div class="product_price">' . get_woocommerce_currency_symbol(). $product->get_sale_price()  . '<span>' .get_woocommerce_currency_symbol() . $product->get_regular_price()  . '</span></div>' ;
+    }
+    else{
+        return '<div class="product_price">' . get_woocommerce_currency_symbol() . $product->get_regular_price()  .  '</div>' ;
     }
 
+}
 
 
 
-    //name product in archive
-    function woocommerce_template_loop_product_title(){
-        echo '<h6 class="product-name mb-0 text-uppercase">' . get_the_title() . '</h6>';
-    }
-    add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
 
-    //sale in archive
 
 ?>
 

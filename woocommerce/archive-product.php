@@ -78,6 +78,7 @@ get_header( 'shop' );
 					//woocommerce_product_loop_start();
 					?>
 				</div>
+				<div class="clearfix"></div>
 				<div class="row">
 					<?php
 					if ( wc_get_loop_prop( 'total' ) ) {
@@ -122,12 +123,7 @@ get_header( 'shop' );
 			?>
 			<div class="col-lg-3 order-1">
 				<?php
-			/**
-			 * Hook: woocommerce_sidebar.
-			 *
-			 * @hooked woocommerce_get_sidebar - 10
-			 */
-			do_action( 'woocommerce_sidebar' );
+			get_template_part( 'sidebar', 'archiver' );
 
 			?>
 		</div>

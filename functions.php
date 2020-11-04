@@ -268,9 +268,26 @@ function fruit_price_edit($price, $product){
 
 }
 
+//custom number product shop page
+
+add_filter ('loop_shop_per_page', 'fruit_custom_number_product');
+function fruit_custom_number_product( $products ){
+    $product = 9;
+    return $product;
+}
 
 
+// custom single product page
+
+//remove rating
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+function  custom_woocommerce_template_single_rating(){
+    echo kk_star_ratings();
+}
+add_action('woocommerce_single_product_summary', 'custom_woocommerce_template_single_rating', 10);
 
 
+//remove sale
+remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
 ?>
 

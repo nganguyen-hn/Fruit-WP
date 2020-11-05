@@ -21,12 +21,14 @@ register_nav_menu('main-menu', 'Main Menu Desktop');
 add_action( 'widgets_init', 'fruit_setup' );
 
 
- function setup_woocommerce_support()
+function setup_woocommerce_support()
 {
   add_theme_support('woocommerce');
+  add_theme_support( 'wc-product-gallery-zoom' );
+  add_theme_support( 'wc-product-gallery-lightbox' );
+  add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'setup_woocommerce_support' );
-
 
 load_theme_textdomain( 'fruit', 'setup_woocommerce_support' );
 
@@ -289,5 +291,65 @@ add_action('woocommerce_single_product_summary', 'custom_woocommerce_template_si
 
 //remove sale
 remove_action('woocommerce_before_single_product_summary','woocommerce_show_product_sale_flash', 10);
+
+
+add_filter( 'woocommerce_product_single_add_to_cart_text', 'woo_custom_cart_button_text' );    // 2.1 +
+function woo_custom_cart_button_text() {
+
+    return _e('<i class="fa fa-cart-arrow-down"></i> <span class="name-add-to-cart">Add to cart</span>', 'fruit');
+}
+
+
+
+add_action( 'woocommerce_after_add_to_cart_quantity', 'bbloomer_display_quantity_plus' );
+
+function bbloomer_display_quantity_plus() {
+    echo '<button type="button" class="plus" ><?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 409.6 409.6" style="enable-background:new 0 0 409.6 409.6;" xml:space="preserve"> <g> <g> <path d="M392.533,187.733H221.867V17.067C221.867,7.641,214.226,0,204.8,0s-17.067,7.641-17.067,17.067v170.667H17.067 C7.641,187.733,0,195.374,0,204.8s7.641,17.067,17.067,17.067h170.667v170.667c0,9.426,7.641,17.067,17.067,17.067 s17.067-7.641,17.067-17.067V221.867h170.667c9.426,0,17.067-7.641,17.067-17.067S401.959,187.733,392.533,187.733z"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg></button>';
+}
+add_action( 'woocommerce_before_add_to_cart_quantity', 'bbloomer_display_quantity_minus' );
+function bbloomer_display_quantity_minus() {
+    echo 'Quantity: <button type="button" class="minus" ><?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <rect y="236" width="512" height="40"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg></button>';
+}
+// -------------
+// 2. Trigger jQuery script
+add_action( 'wp_footer', 'bbloomer_add_cart_quantity_plus_minus' );
+
+function bbloomer_add_cart_quantity_plus_minus() {
+    // Only run this on the single product page
+    if ( ! is_product() ) return;
+    ?>
+        <script type="text/javascript">
+
+        jQuery(document).ready(function($){
+            $('form.cart').on( 'click', 'button.plus, button.minus', function() {
+
+                // Get current quantity values
+                var qty = $( this ).closest( 'form.cart' ).find( '.qty' );
+                var val = parseFloat(qty.val());
+                var max = parseFloat(qty.attr( 'max' ));
+                var min = parseFloat(qty.attr( 'min' ));
+                var step = parseFloat(qty.attr( 'step' ));
+
+                // Change the value if plus or minus
+                if ( $( this ).is( '.plus' ) ) {
+                    if ( max && ( max <= val ) ) {
+                        qty.val( max );
+                    } else {
+                        qty.val( val + step );
+                    }
+                } else {
+                    if ( min && ( min >= val ) ) {
+                        qty.val( min );
+                    } else if ( val > 1 ) {
+                        qty.val( val - step );
+                    }
+                }
+            });
+        });
+        </script>
+    <?php
+}
+
+
 ?>
 

@@ -28,7 +28,7 @@ class product_bestseller extends WP_Widget{
 			'post_type' => 'product',
 		    'meta_key' => 'total_sales',
 		    'orderby' => 'meta_value_num',
-			'post_per_page' => $instance['product_number'],
+			'posts_per_page' => $instance['product_number'],
 		);
 		$query = new WP_Query($args);
 		if($query->have_posts()){

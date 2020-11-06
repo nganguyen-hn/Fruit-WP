@@ -281,12 +281,7 @@ function fruit_custom_number_product( $products ){
 
 // custom single product page
 
-//remove rating
-remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
-function  custom_woocommerce_template_single_rating(){
-    echo kk_star_ratings();
-}
-add_action('woocommerce_single_product_summary', 'custom_woocommerce_template_single_rating', 10);
+
 
 
 //remove sale
@@ -308,8 +303,10 @@ function bbloomer_display_quantity_plus() {
 }
 add_action( 'woocommerce_before_add_to_cart_quantity', 'bbloomer_display_quantity_minus' );
 function bbloomer_display_quantity_minus() {
-    echo 'Quantity: <button type="button" class="minus" ><?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <rect y="236" width="512" height="40"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg></button>';
+    echo '<button type="button" class="minus" ><?xml version="1.0" encoding="iso-8859-1"?> <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  --> <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> <g> <g> <rect y="236" width="512" height="40"/> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg></button>';
 }
+
+
 // -------------
 // 2. Trigger jQuery script
 add_action( 'wp_footer', 'bbloomer_add_cart_quantity_plus_minus' );
@@ -349,6 +346,30 @@ function bbloomer_add_cart_quantity_plus_minus() {
         </script>
     <?php
 }
+
+
+add_filter ( 'woocommerce_product_thumbnails_columns', 'bbloomer_change_gallery_columns' );
+
+function bbloomer_change_gallery_columns() {
+     return 1;
+}
+
+// Remove text Product Description in product detail
+add_filter( 'woocommerce_product_description_heading', 'remove_product_description_heading' );
+function remove_product_description_heading() {
+return '';
+}
+// Remove text Additional in product detail
+add_filter( 'woocommerce_product_additional_information_heading', 'remove_product_additional_information_heading' );
+function remove_product_additional_information_heading() {
+return '';
+}
+
+remove_action('woocommerce_review_display_comment_text', 'woocommerce_review_comment_text', 10);
+function  custom_woocommerce_review_after_comment_text(){
+    echo kk_star_ratings();
+}
+add_action('woocommerce_review_display_comment_text', 'woocommerce_review_comment_text', 10);
 
 
 ?>

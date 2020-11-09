@@ -15,6 +15,9 @@ function fruit_setup(){
     add_image_size( 'archive_product_popup', 350, 500, true ); // images product popup
 	add_image_size( 'archive_single', 770, 480, true ); // images single
 	add_image_size( 'img_single_sidebar', 85, 85, true ); // images single
+
+    add_image_size( 'img_big_single', 570, 570, true ); // img_big_single
+    add_image_size( 'thumbnail_single', 170, 170, true ); // thumbnail_single
 register_nav_menu('main-menu', 'Main Menu Desktop');
 }
 
@@ -24,9 +27,9 @@ add_action( 'widgets_init', 'fruit_setup' );
 function setup_woocommerce_support()
 {
   add_theme_support('woocommerce');
-  add_theme_support( 'wc-product-gallery-zoom' );
-  add_theme_support( 'wc-product-gallery-lightbox' );
-  add_theme_support( 'wc-product-gallery-slider' );
+  // add_theme_support( 'wc-product-gallery-zoom' );
+  // add_theme_support( 'wc-product-gallery-lightbox' );
+  // add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'setup_woocommerce_support' );
 
@@ -110,12 +113,17 @@ function fruit_css_style(){
     wp_enqueue_style( 'styles-bootstrap' );
     wp_register_style( 'styles-css', get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'styles-css' );
+    wp_register_style( 'styles-slick-theme', get_template_directory_uri() . '/css/slick-theme.css' );
+    wp_enqueue_style( 'styles-slick-theme' );
+    wp_register_style( 'styles-slick', get_template_directory_uri() . '/css/slick.css' );
+    wp_enqueue_style( 'styles-slick' );
     }
 add_action('wp_enqueue_scripts', 'fruit_css_style');
 
 function fruit_all_file_js(){
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/js/bootstrap.bundle.min.js',['jquery'], false, true );
     wp_enqueue_script('my-js', get_template_directory_uri() . '/js/fruit.js',['jquery'], false, true );
+    wp_enqueue_script('slick-js', get_template_directory_uri() . '/js/slick.min.js',['jquery'], false, true );
 }
 add_action('wp_enqueue_scripts', 'fruit_all_file_js');
 /* add js */
@@ -247,10 +255,10 @@ function fruit_date_format() {
 // remove rating archive
 
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
-add_action('woocommerce_after_shop_loop_item_title','custom_woocommerce_template_loop_rating', 11 );
-function custom_woocommerce_template_loop_rating() {
-     echo kk_star_ratings();
- }
+add_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_rating', 11 );
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+add_action('woocommerce_single_product_summary','woocommerce_template_single_rating', 15 );
 
 //name product in archive
 function woocommerce_template_loop_product_title(){
@@ -365,12 +373,30 @@ function remove_product_additional_information_heading() {
 return '';
 }
 
-remove_action('woocommerce_review_display_comment_text', 'woocommerce_review_comment_text', 10);
-function  custom_woocommerce_review_after_comment_text(){
-    echo kk_star_ratings();
-}
-add_action('woocommerce_review_display_comment_text', 'woocommerce_review_comment_text', 10);
 
+add_filter ('woocommerce_get_image_size_thumbnail', function( $size ){
+    return array(
+        'width' => 270,
+        'height' => 230,
+        'crop' => 1,
+    );
+});
+
+add_filter ('woocommerce_get_image_size_single', function ($size){
+    return array(
+        'width' => 570,
+        'height' => 570,
+        'crop' => 1,
+    );
+});
+
+add_filter ('woocommerce_get_image_size_gallery_thumbnail', function($size){
+    return array(
+        'width' => 170,
+        'height' => 170,
+        'crop' => 1,
+    );
+});
 
 ?>
 

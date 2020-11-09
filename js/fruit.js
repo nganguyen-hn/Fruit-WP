@@ -64,7 +64,29 @@ function mobilescroll() {
       $(this).closest('.js-inno-wrapper-popup').find('.js-bg-popup-product-quikview').removeClass('active');
     });
 }
+function sliderproduct(){
+   $('.slider-imagebig').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: true,
+  asNavFor: '.slider-imagesmall',
+  prevArrow:'<button type="button" class="prev-slide"><i class="fa fa-angle-left"></i> </button>',
+  nextArrow:'<button type="button" class="next-slide"> <i class="fa fa-angle-right"></i></button>',
+});
+$('.slider-imagesmall').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-imagebig',
+  dots: false,
+  arrows: false,
+  infinite: false,
+  focusOnSelect: true
+});
+}
 
+
+sliderproduct();
 popupquikviewpd();
 jssearch();
 menumobile();

@@ -89,8 +89,15 @@ get_header( 'shop' );
 							 * Hook: woocommerce_shop_loop.
 							 */
 							do_action( 'woocommerce_shop_loop' );
+							?>
+							<div class="col-lg-4">
+							<?php
 
 							wc_get_template_part( 'content', 'product' );
+							?>
+							</div>
+							<?php
+
 						}
 					}
 					?>

@@ -2225,8 +2225,6 @@ footer{
             img{
                 max-width: 100%;
                 transition: all 0.3s;
-                height: 230px;
-                object-fit: cover;
             }
         }
         .info-product-item{
@@ -2241,6 +2239,37 @@ footer{
                     color: $color-main2;
                 }
             }
+            .star-rating{
+                overflow: hidden;
+                position: relative;
+                height: 1em;
+                line-height: 1;
+                font-size: 14px;
+                color: #ffd800;
+                width: 5em;
+                margin:auto;
+                margin-top: 19px;
+                font-family: FontAwesome;
+                &:before{
+                    content: "\f006 \f006 \f006 \f006 \f006";
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                }
+                span{
+                    overflow: hidden;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    padding-top: 1.5em;
+                    &:before{
+                        content: "\f005 \f005 \f005 \f005 \f005";
+                        top: 0;
+                        position: absolute;
+                        left: 0;
+                    }
+                }
+            }
             .product_price{
                 font-size: 15px;
                 color: $color-main2;
@@ -2251,12 +2280,6 @@ footer{
                     color: #999999;
                     margin-left: 16px;
                     text-decoration: line-through;
-                }
-            }
-            .kk-star-ratings{
-                margin-top: 10px;
-                .kksr-legend{
-                    display: none;
                 }
             }
         }
@@ -2340,16 +2363,86 @@ footer{
     }
 }
 
+.star-rating{
+    overflow: hidden;
+    position: relative;
+    height: 1em;
+    line-height: 1;
+    font-size: 14px;
+    color: #ffd800;
+    width: 5em;
+    margin:auto;
+    margin-top: 19px;
+    font-family: FontAwesome;
+    &:before{
+        content: "\f006 \f006 \f006 \f006 \f006";
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+    span{
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        position: absolute;
+        padding-top: 1.5em;
+        &:before{
+            content: "\f005 \f005 \f005 \f005 \f005";
+            top: 0;
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+
 .single-product-page{
     margin-top: 120px;
     .box-images-product-single{
-        ol{
-            display: inline-flex;
-            flex-wrap: wrap;
-            list-style: none;
-            padding:0;
-            li{
-
+        .prev-slide,
+        .next-slide{
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            z-index: 1;
+            cursor: pointer;
+            background: #e7e7e7;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 10px;
+            color: #fff;
+            transition: all 0.3s;
+            &:hover{
+                 background: $color-main2;
+            }
+        }
+        .prev-slide{
+            left: 10px;
+        }
+        .next-slide{
+            right: 10px;
+        }
+        .slider-imagebig{
+            img{
+                border-radius: 3px;
+                border:1px solid #e6e6e6;
+            }
+        }
+        .slider-imagesmall{
+            .slick-track{
+                margin: unset;
+                margin: 0 -15px;
+            }
+        }
+        .item-imagesmall{
+            margin-right: 15px;
+            margin-left: 15px;
+            margin-top: 30px;
+            img{
+                border-radius: 3px;
+                border:1px solid #e6e6e6;
+                cursor: pointer;
             }
         }
     }
@@ -2374,11 +2467,23 @@ footer{
                 text-decoration: line-through;
             }
         }
+        .woocommerce-product-rating{
+            margin-top: 20px;
+            flex-wrap: wrap;
+            display: inline-flex;
+            align-items: center;
+            .star-rating{
+                margin: 0;
+                margin-right: .25rem;
+            }
+            .woocommerce-review-link{
+                color: #999999;
+                text-decoration: none;
+                font-size: 13px;
+            }
+        }
         p{
             margin-bottom: 0;
-        }
-        .kk-star-ratings{
-            margin-top: 16px;
         }
         .single-pr-short-description{
             border-top:1px solid #e6e6e6;
@@ -2609,8 +2714,9 @@ footer{
                             order: 1;
                             margin-bottom: 0;
                         }
-                        .kk-star-ratings{
+                        .star-rating{
                             order: 2;
+                            margin: unset;
                             margin-top: 13px;
                         }
                         .description{
@@ -2638,6 +2744,44 @@ footer{
             display: inline-flex;
             flex-wrap: wrap;
             margin-top: 9px;
+            align-items: center;
+            .stars{
+                margin-left: 10px;
+                a{
+                    position: relative;
+                    height: 1em;
+                    width: 1em;
+                    text-indent: -999em;
+                    display: inline-block;
+                    text-decoration: none;
+                    box-shadow: none;
+                    color: #ffd800;
+                    font-size: 15px;
+                    &:before{
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 1em;
+                        height: 1em;
+                        line-height: 1;
+                        font-family: FontAwesome;
+                        content: "\f006";
+                        text-indent: 0;
+                    }
+                }
+            }
+            .stars.selected{
+                a{
+                    &:hover,
+                    &:focus,
+                    &.active{
+                        &:before{
+                            content: "\f005";
+                        }
+                    }
+                }
+            }
             /*span{
                 margin-left: 10px;
                 a{
@@ -2740,11 +2884,5 @@ footer{
         color: $color-main;
         text-transform: uppercase;
         margin-bottom: 60px;
-    }
-    .item-related-product{
-        @media (min-width: 992px){
-            flex: 0 0 25%;
-            max-width: 25%;
-        }
     }
 }

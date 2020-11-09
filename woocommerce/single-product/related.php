@@ -39,9 +39,13 @@ if ( $related_products ) : ?>
 					$post_object = get_post( $related_product->get_id() );
 
 					setup_postdata( $GLOBALS['post'] =& $post_object ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+					?>
+					<div class="col-lg-3">
+					<?php
 
 					wc_get_template_part( 'content', 'product' );
 					?>
+				</div>
 
 			<?php endforeach; ?>
 		</div>

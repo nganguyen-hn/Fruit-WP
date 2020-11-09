@@ -25,7 +25,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <!-- <li <?php //wc_product_class( '', $product ); ?>> -->
-	<div class="col-lg-4 item-related-product">
 		<div class="product-item-category-page text-center">
 		<?php
 		/**
@@ -79,5 +78,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		do_action( 'woocommerce_after_shop_loop_item' );
 		?>
 		</div>
-	</div>
 <!-- </li> -->

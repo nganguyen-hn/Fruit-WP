@@ -1532,29 +1532,26 @@ footer {
         font-size: 15px;
         color: #808080;
         transition: all 0.3s; }
-        .page-collection-product .tab-title li a:hover, .page-collection-product .tab-title li a:active {
+        .page-collection-product .tab-title li a:hover, .page-collection-product .tab-title li a.active {
           color: #699800; }
   .page-collection-product .box-item-product {
     margin-bottom: 30px; }
     .page-collection-product .box-item-product:hover .box-images img {
       transform: scale(1.05);
-      filter: brightness(60%); }
+      filter: brightness(30%); }
     .page-collection-product .box-item-product:hover .info-product {
-      opacity: 1;
-      top: 35%; }
+      opacity: 1; }
     .page-collection-product .box-item-product .box-images {
       overflow: hidden; }
       .page-collection-product .box-item-product .box-images img {
         transition: all 0.3s; }
     .page-collection-product .box-item-product .info-product {
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
       opacity: 0;
+      width: 80%;
       transition: all 0.5s; }
       .page-collection-product .box-item-product .info-product .list-icon-product .item-icon-product {
         width: 35px;

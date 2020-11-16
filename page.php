@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <section class="breadcrumb_site text-center" >
 	<div class="container container-v1">
-		<h1 class="title-page mb-0"><?php single_cat_title(); ?></h1>
+		<h1 class="title-page mb-0"><?php the_title(); ?></h1>
 		<nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<?php

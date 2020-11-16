@@ -449,7 +449,7 @@ class Fruit_testimonial extends Widget_Base {
             \Elementor\Group_Control_Typography::get_type(),
             array(
                 'name' => 'description_typography',
-                'seclectors' => '{{WPARPER}} .fruit-member-description',
+                'seclectors' => '{{WRAPPER}} .fruit-member-description',
             )
         );
 

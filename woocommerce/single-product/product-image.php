@@ -18,7 +18,7 @@
 	</div>
 	<div class="slider slider-imagesmall">
 		<div class="item-imagesmall">
-			<?php the_post_thumbnail('thumbnail_single', array('class' => 'img-fluid')); ?>
+			<?php //the_post_thumbnail('thumbnail_single', array('class' => 'img-fluid')); ?>
 		</div>
 		<?php
 		foreach ($product_image_ids as $product_image_id) {

@@ -6,6 +6,7 @@ require get_template_directory() . '/include/widget_category_product.php';
 require get_template_directory() . '/include/bs4navwalker.php';
 require get_template_directory() . '/include/widget_bestsellers.php';
 require get_template_directory() . '/include/custom-widgets-elementor/my-widgets.php';
+require get_template_directory() . '/include/custom-widgets-elementor/my-widget-gallery.php';
 add_action( 'after_fruit_setup', 'fruit_setup' );
 add_filter( 'widget_text', 'do_shortcode' );
 function fruit_setup(){
